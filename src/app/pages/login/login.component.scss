@@ -1,0 +1,216 @@
+.light-container {
+    --input-field-border-color: rgb(116, 114, 114);
+    --input-field-border-hover-color: rgb(34, 34, 34);
+    --input-field-border-focus-color: rgb(0, 0, 0);
+    --input-field-label-color: rgb(126, 126, 126);
+    --input-field-label-hover-color: rgb(34, 34, 34);
+    --input-field-label-focus-color: rgb(94, 94, 94);
+    --input-field-value-color: rgb(0, 0, 0);
+    --formfield-error-color: #f44336;
+    --form-header-text-color: rgb(0, 0, 0);
+    --link-color: #3f51b5;
+    --input-icon-color: rgb(0, 0, 0);
+}
+
+.dark-container {
+    --input-field-border-color: rgb(180, 179, 179);
+    --input-field-border-hover-color: rgb(192, 192, 192);
+    --input-field-border-focus-color: rgb(223, 223, 223);
+    --input-field-label-color: rgb(180, 180, 180);
+    --input-field-label-hover-color: rgb(196, 196, 196);
+    --input-field-label-focus-color: rgb(212, 210, 210);
+    --input-field-value-color: rgb(255, 255, 255);
+    --formfield-error-color: #f38f89;
+    --form-header-text-color: rgb(236, 236, 236);
+    --link-color: #b2bcf7;
+    --input-icon-color: rgb(215, 215, 215);
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88vh;
+}
+
+.login-form {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 30px;
+    text-align: center;
+    width: 500px;
+    min-width: 100px;
+}
+
+.form-field-group {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+}
+
+.form-header {
+    margin: 0 0 20px 0;
+    color: var(--form-header-text-color);
+}
+
+.loginAndSigninButton {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--link-color);
+    color: var(--link-color);
+}
+
+/*---------- Remove Bootom Space From Input Field ----------*/
+// ::ng-deep .mat-mdc-form-field-subscript-wrapper {
+//     display: none !important;
+// }
+
+.form-fields {
+    display: block;
+    width: 100%;
+    // margin: 10px 0;
+}
+
+.form-footer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+// change mat-input floating lable color
+::ng-deep .mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
+    color: var(--input-field-label-color);
+}
+
+// change mat-label color & background & font-size on Focus
+::ng-deep .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+    color: var(--input-field-label-focus-color) !important;
+}
+
+// change label color, background & font when focus after change lable position
+::ng-deep .mat-mdc-form-field .mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
+    font-size: 16px;
+    color: var(--input-field-label-focus-color);
+    top: 28px !important;
+    position: relative !important;
+    font-weight: 300 !important;
+}
+
+
+// change mat-input Value color When Typing...
+::ng-deep .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
+    color: var(--input-field-value-color) !important;
+}
+
+// change mat-input placeholder color
+::ng-deep .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input::placeholder {
+    color: var(--input-field-label-color);
+    font-size: 15px;
+}
+
+//   // change caret-color on focus (|)
+::ng-deep .mdc-text-field .mdc-text-field__input {
+    caret-color: var(--input-field-border-hover-color);
+}
+
+
+// change border color
+::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+    border-color: var(--input-field-border-color);
+    border-width: 2px;
+}
+
+// hover to change outline color same as border color in mat-form-field
+::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__leading,
+::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__notch,
+::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__trailing {
+    border-color: var(--input-field-border-hover-color);
+}
+
+// Focus to change border color on mat-form-field
+::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__leading,
+::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__notch,
+::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__trailing {
+    border-color: var(--input-field-border-focus-color);
+    border-width: 2px;
+}
+
+::ng-deep .mat-mdc-form-field-error {
+    color: var(--formfield-error-color);
+}
+
+/*================================= Invalid Form Field Border And Label =================================*/
+::ng-deep .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+::ng-deep .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+::ng-deep .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+    border-color: var(--formfield-error-color) !important;
+}
+
+::ng-deep .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-floating-label {
+    color: var(--formfield-error-color) !important;
+}
+
+
+::ng-deep .mat-mdc-icon-button svg {
+    color: var(--input-icon-color) !important;
+}
+
+::ng-deep .mat-icon {
+    color: var(--input-icon-color) !important;
+}
+
+
+@supports (animation: grow .5s cubic-bezier(.25, .25, .25, 1) forwards) {
+    .tick {
+        stroke-opacity: 0;
+        stroke-dasharray: 29px;
+        stroke-dashoffset: 29px;
+        animation: draw .5s cubic-bezier(.25, .25, .25, 1) forwards;
+        animation-delay: .6s
+    }
+
+    .circle {
+        fill-opacity: 0;
+        stroke: #219a00;
+        stroke-width: 16px;
+        transform-origin: center;
+        transform: scale(0);
+        animation: grow 1s cubic-bezier(.25, .25, .25, 1.25) forwards;
+    }
+}
+
+@keyframes grow {
+    60% {
+        transform: scale(.8);
+        stroke-width: 4px;
+        fill-opacity: 0;
+    }
+
+    100% {
+        transform: scale(.9);
+        stroke-width: 8px;
+        fill-opacity: 1;
+        fill: #219a00;
+    }
+}
+
+@keyframes draw {
+
+    0%,
+    100% {
+        stroke-opacity: 1;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+// Styles
+:root {
+    --theme-color: var(--color-purple);
+}

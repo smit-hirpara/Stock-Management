@@ -1,0 +1,66 @@
+.product-section-body {
+    width: 100%;
+    height: 91vh;
+    position: relative;
+}
+
+.add-button {
+    background-color: #1d86e9;
+}
+
+.add-btn-section {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+/*============================== Left Tooltip ==============================*/
+.left-tooltip-section {
+    position: relative;
+    margin-right: 15px;
+    text-decoration: none;
+    color: inherit;
+    width: max-content;
+    margin: 10px 10px 10px 10px;
+}
+
+/*-- Tooltip Social Media --*/
+.left-tooltip {
+    background: #262626;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    color: #ffff;
+    left: 50%;
+    padding: 0.5rem 0.4rem;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-130%, -40%);
+    transition: all 0.2s ease;
+    z-index: 1;
+    width: max-content;
+    padding: 10px;
+}
+
+.left-tooltip:after {
+    content: " ";
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
+    border: solid;
+    border-width: 10px 10px 0 10px;
+    border-color: transparent;
+    transform: translate(214%, -113%) rotate(268deg);
+}
+
+.left-tooltip:after {
+    border-top-color: #262626;
+}
+
+.left-tooltip-section:hover .left-tooltip {
+    opacity: 1;
+    transform: translate(-155%, -40%);
+}

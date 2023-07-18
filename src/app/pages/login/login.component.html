@@ -1,0 +1,112 @@
+<div class="form-container light-container" [ngClass]="{'dark-container' : themeService.themechange}"
+    *ngIf="!ToggleForms">
+    <div class="login-form">
+        <h3 class="form-header" *ngIf="!SignupIcon">Sign Up</h3>
+        <form [formGroup]="signupUser" *ngIf="!SignupIcon">
+            <div class="form-field-group">
+                <div style="margin-right: 5px;">
+                    <mat-form-field class="form-fields" appearance="outline">
+                        <mat-label>First Name</mat-label>
+                        <input matInput placeholder="Enter First Name" formControlName="FirstName" required>
+                    </mat-form-field>
+                </div>
+
+                <div style="margin-left: 5px;">
+                    <mat-form-field class="form-fields" appearance="outline">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput placeholder="Enter Last Name" formControlName="LastName" required>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <mat-form-field class="form-fields" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Enter Your Email Address" formControlName="Email" required>
+                <mat-error *ngIf="signupUser.controls['Email'].hasError('email')">Plese Enter Valid Email
+                    Address</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form-fields" appearance="outline">
+                <mat-label>Mobile Number</mat-label>
+                <input matInput placeholder="9484-9287-92847" formControlName="MobileNo" required
+                    (keyup)="mobileNumber($event);numberValidation($event)" maxlength="10">
+            </mat-form-field>
+
+            <mat-form-field color="primary" class="form-fields" appearance="outline">
+                <mat-label>Date Of Birth</mat-label>
+                <input matInput [matDatepicker]="dob" formControlName="DateOfBirth">
+                <mat-datepicker-toggle matIconSuffix [for]="dob"></mat-datepicker-toggle>
+                <mat-datepicker #dob></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="form-fields" appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" required formControlName="Password"
+                    placeholder="Create Password">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+
+            <mat-form-field class="form-fields" appearance="outline">
+                <mat-label>Re Type Password</mat-label>
+                <input matInput [type]="hide2 ? 'password' : 'text'" required formControlName="RetypePassword"
+                    [(ngModel)]="reTypePass" placeholder="">
+                <button mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="passwordSame">Your
+                    confirmation password and password do not match.</mat-error>
+            </mat-form-field>
+            <div class="form-footer">
+                <button mat-raised-button color="primary" [disabled]="signupUser.invalid" (click)="SignUpUser()">SIGN
+                    UP</button>
+                <button class="loginAndSigninButton" (click)="ChangeForm()">LOG IN</button>
+            </div>
+        </form>
+        <svg class="ft-green-tick" *ngIf="SignupIcon" xmlns="http://www.w3.org/2000/svg" height="100" width="100"
+            viewBox="0 0 48 48" aria-hidden="true">
+            <circle class="circle" fill="#5bb543" cx="24" cy="24" r="22" />
+            <path class="tick" fill="none" stroke="#FFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"
+                stroke-miterlimit="10" d="M14 27l5.917 4.917L34 17" />
+        </svg>
+    </div>
+</div>
+
+
+
+
+<div class="form-container light-container" [ngClass]="{'dark-container' : themeService.themechange}"
+    *ngIf="ToggleForms">
+    <div class="login-form">
+        <h3 class="form-header" *ngIf="!LoginIcon">Log In</h3>
+        <form [formGroup]="loginform" *ngIf="!LoginIcon">
+            <mat-form-field class="form-fields" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Enter You Email Address" formControlName="Email" required>
+                <mat-error>Not a valid email</mat-error>
+            </mat-form-field>
+            <mat-form-field class="form-fields" appearance="outline">
+                <mat-label>password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" required formControlName="passsword"
+                    placeholder="Enter Your Password">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+        </form>
+        <div class="form-footer" *ngIf="!LoginIcon">
+            <button mat-raised-button color="primary" (click)="CheckUser()" [disabled]="loginform.invalid">Log
+                in</button>
+            <button class="loginAndSigninButton" (click)="ChangeForm()">SIGN UP</button>
+        </div>
+
+        <svg class="ft-green-tick" *ngIf="LoginIcon" xmlns="http://www.w3.org/2000/svg" height="100" width="100"
+            viewBox="0 0 48 48" aria-hidden="true">
+            <circle class="circle" fill="#5bb543" cx="24" cy="24" r="22" />
+            <path class="tick" fill="none" stroke="#FFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"
+                stroke-miterlimit="10" d="M14 27l5.917 4.917L34 17" />
+        </svg>
+    </div>
+</div>

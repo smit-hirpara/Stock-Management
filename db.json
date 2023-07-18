@@ -1,0 +1,19 @@
+{
+  "Users": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "FirstName": "pal",
+      "LastName": "dobariya",
+      "Email": "pal@gmail.com",
+      "MobileNo": "5463423242",
+      "DateOfBirth": "2023-07-18T18:30:00.000Z",
+      "Password": "Pal123",
+      "RetypePassword": "Pal123",
+      "id": 2
+    }
+  ]
+}

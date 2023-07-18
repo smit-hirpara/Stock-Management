@@ -1,0 +1,251 @@
+/*========== Toolbar Space ==========*/
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+/*============================== Background Themes ==============================*/
+/*---------- Primary Theme ----------*/
+.light-container {
+    width: auto;
+    height: 100vh;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1007%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(212%2c 226%2c 241%2c 1)'%3e%3c/rect%3e%3cpath d='M534.5817828651759-59.183747159751896L451.8454485726205 10.240280430091495 521.2694761624639 92.97661472264687 604.0058104550193 23.552587132803502z' fill='rgba(147%2c 180%2c 217%2c 0.2)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M870.845%2c521.803C925.239%2c524.965%2c988.424%2c518.953%2c1014.726%2c471.236C1040.561%2c424.367%2c1006.178%2c371.825%2c978.893%2c325.785C952.405%2c281.09%2c922.782%2c229.78%2c870.845%2c228.456C817.493%2c227.096%2c777.308%2c272.604%2c752.815%2c320.021C730.514%2c363.195%2c728.755%2c414.092%2c753.29%2c456.037C777.588%2c497.576%2c822.802%2c519.01%2c870.845%2c521.803' fill='rgba(147%2c 180%2c 217%2c 0.2)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M1457.80497836731 434.80950795648795L1340.5966310917684 510.9254986633555 1416.7126217986358 628.1338459388971 1533.9209690741775 552.0178552320295z' fill='rgba(147%2c 180%2c 217%2c 0.2)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M1054.0455017131421 398.8569253879173L1102.3069324679632 430.19826497867393 1125.1882264766878 342.1354490510639z' fill='rgba(147%2c 180%2c 217%2c 0.2)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M570.8923723458851 343.05685789752886L487.3316972339898 406.0243430574213 623.5632625297761 499.881613145318z' fill='rgba(147%2c 180%2c 217%2c 0.2)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M1331.8120260820099 273.942276459173L1262.1518766561703 322.7188381999606 1310.928438396958 392.37898762580005 1380.5885878227975 343.60242588501245z' fill='rgba(147%2c 180%2c 217%2c 0.2)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M244.07395281439895 108.92579227714569L350.3134867504033 172.8988260538628 354.09685192770417 64.55742257491355z' fill='rgba(147%2c 180%2c 217%2c 0.2)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M278.69120259868737 429.05560555092256L134.9259925429958 416.47777946162637 122.3481664536996 560.2429895173179 266.1133765093912 572.8208156066141z' fill='rgba(147%2c 180%2c 217%2c 0.2)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M926.1506611688476 231.64245335596087L1045.6565091627003 289.9293499467611 1103.9434057535007 170.42350195290823 984.4375577596478 112.13660536210801z' fill='rgba(147%2c 180%2c 217%2c 0.2)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M117.26140187327144 498.6656428579697L43.175399943204695 388.8286280832932-66.66161483147178 462.91463001336 7.424387098594963 572.7516447880364z' fill='rgba(147%2c 180%2c 217%2c 0.2)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M727.7334528273298-29.345012551735387L586.4004942171468 8.525039571764417 624.2705463406467 149.85799818194735 765.6035049508296 111.98794605844756z' fill='rgba(147%2c 180%2c 217%2c 0.2)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M421.45%2c289.034C472.353%2c289.561%2c517.826%2c258.558%2c542.653%2c214.117C566.868%2c170.772%2c564.529%2c118.842%2c540.933%2c75.157C515.994%2c28.985%2c473.894%2c-8.426%2c421.45%2c-10.277C366.043%2c-12.232%2c312.251%2c17.125%2c286.408%2c66.174C261.994%2c112.511%2c277.376%2c166.858%2c304.518%2c211.651C330.479%2c254.494%2c371.358%2c288.515%2c421.45%2c289.034' fill='rgba(147%2c 180%2c 217%2c 0.2)' class='triangle-float3'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1007'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3cstyle%3e %40keyframes float1 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-10px%2c 0)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float1 %7b animation: float1 5s infinite%3b %7d %40keyframes float2 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-5px%2c -5px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float2 %7b animation: float2 4s infinite%3b %7d %40keyframes float3 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(0%2c -10px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float3 %7b animation: float3 6s infinite%3b %7d %3c/style%3e%3c/defs%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
+    /*--- Toolbar Bg Color ---*/
+    --toolbar-bg-color: #1d86e9;
+
+    /*--- Router Link ---*/
+    --routerlink-bg-color: #b1bcff46;
+    --routerlink-border-color: #1d86e9;
+    --routerlink-text-color: #1d86e9;
+
+    /*--- SideBar Color ---*/
+    --sidebar-bg-color: #fff;
+    --sidebar-text-color: rgb(119, 119, 119);
+
+    /*--- Menu Background Color ---*/
+    --menu-bgColor: #ffff;
+}
+
+/*---------- Dark Theme ----------*/
+.dark-container {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1012%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(81%2c 81%2c 81%2c 1)'%3e%3c/rect%3e%3cpath d='M902.9274156996767 392.4854425271925L788.7150018764419 440.96573589366545 951.4077090661497 506.69785635042734z' fill='rgba(93%2c 93%2c 93%2c 0.43)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M792.0779763246843 478.78341633939056L807.2946466436783 557.0663987386677 917.110785083097 495.09990206053806z' fill='rgba(93%2c 93%2c 93%2c 0.43)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M1246.310655390938 70.4850949427848L1144.6696712471737 37.45993724997921 1111.6445135543681 139.10092139374368 1213.2854976981325 172.12607908654925z' fill='rgba(93%2c 93%2c 93%2c 0.43)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M1128.964%2c488.15C1170.022%2c488.694%2c1204.625%2c459.35%2c1223.61%2c422.94C1241.184%2c389.236%2c1235.755%2c350.48%2c1218.373%2c316.676C1199.01%2c279.021%2c1171.306%2c238.823%2c1128.964%2c238.879C1086.676%2c238.935%2c1058.806%2c279.054%2c1039.962%2c316.911C1023.471%2c350.041%2c1021.501%2c387.65%2c1038.568%2c420.487C1057.173%2c456.282%2c1088.627%2c487.615%2c1128.964%2c488.15' fill='rgba(93%2c 93%2c 93%2c 0.43)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M827.9455528889058 498.3610894366096L870.1145420118241 407.9294004316188 713.3825139428787 389.89176124973665z' fill='rgba(93%2c 93%2c 93%2c 0.43)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M269.627%2c131.177C298.709%2c131.466%2c314.595%2c100.707%2c328.912%2c75.392C342.904%2c50.652%2c357.56%2c23.126%2c345.215%2c-2.476C331.558%2c-30.797%2c301.068%2c-47.363%2c269.627%2c-47.551C237.862%2c-47.741%2c205.976%2c-32.136%2c192.456%2c-3.391C180.272%2c22.516%2c198.108%2c49.398%2c212.35%2c74.233C226.705%2c99.264%2c240.773%2c130.89%2c269.627%2c131.177' fill='rgba(93%2c 93%2c 93%2c 0.43)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M747.979%2c259.321C805.062%2c258.69%2c848.109%2c214.654%2c877.459%2c165.691C907.903%2c114.902%2c929.221%2c54.578%2c902.328%2c1.822C873.327%2c-55.069%2c811.785%2c-90.863%2c747.979%2c-88.307C687.837%2c-85.898%2c641.581%2c-39.935%2c613.659%2c13.386C587.932%2c62.515%2c586.858%2c119.941%2c613.44%2c168.612C641.227%2c219.489%2c690.012%2c259.962%2c747.979%2c259.321' fill='rgba(93%2c 93%2c 93%2c 0.43)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M995.0027806425936 385.1233105128338L1028.2802355325346 302.75871939958705 888.0946214176939 294.02483262129897z' fill='rgba(93%2c 93%2c 93%2c 0.43)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M344.842%2c353.316C386.099%2c351.621%2c417.026%2c320.098%2c437.509%2c284.244C457.791%2c248.743%2c470.074%2c205.649%2c449.333%2c170.415C428.813%2c135.557%2c385.244%2c124.877%2c344.842%2c126.826C308.088%2c128.599%2c276.415%2c148.799%2c256.464%2c179.718C234.336%2c214.01%2c219.456%2c256.074%2c237.972%2c292.444C257.907%2c331.602%2c300.939%2c355.12%2c344.842%2c353.316' fill='rgba(93%2c 93%2c 93%2c 0.43)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M1485.598734154517 596.1234027041311L1427.9779709243626 453.50700914936306 1285.3615773695947 511.1277723795174 1342.982340599749 653.7441659342854z' fill='rgba(93%2c 93%2c 93%2c 0.43)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M1368.9918655918827 18.79819180267205L1378.3242210661072 85.20135138249536 1473.2627826987298 38.00123838124695z' fill='rgba(93%2c 93%2c 93%2c 0.43)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M1252.4993830318706 233.47741621433045L1282.1676116021704 163.58344974719014 1162.49254761631 154.02809012531085z' fill='rgba(93%2c 93%2c 93%2c 0.43)' class='triangle-float1'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1012'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3cstyle%3e %40keyframes float1 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-10px%2c 0)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float1 %7b animation: float1 5s infinite%3b %7d %40keyframes float2 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-5px%2c -5px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float2 %7b animation: float2 4s infinite%3b %7d %40keyframes float3 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(0%2c -10px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float3 %7b animation: float3 6s infinite%3b %7d %3c/style%3e%3c/defs%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
+    /*--- Toolbar Bg Color ---*/
+    --toolbar-bg-color: #000000;
+
+    /*--- Router Link ---*/
+    --routerlink-bg-color: #daecfc31;
+    --routerlink-border-color: #000000;
+    --routerlink-text-color: #ffffff;
+
+    /*--- SideBar Color ---*/
+    --sidebar-bg-color: #727272;
+    --sidebar-text-color: rgb(196, 196, 196);
+
+    /*--- Menu Background Color ---*/
+    --menu-bgColor: #525252;
+}
+
+
+/*========== Toolbar ==========*/
+.toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: var(--toolbar-bg-color);
+}
+
+.sidebar-logo {
+    width: 50px;
+}
+
+/*============================== SideBar Themes ==============================*/
+/*---------- Primary Theme ----------*/
+.primary-sidebar {
+    width: 280px;
+    background-color: var(--sidebar-bg-color);
+}
+
+.sidebar-link-text {
+    color: var(--sidebar-text-color) !important;
+}
+
+/*============================== SideBar Dropdoen Items ==============================*/
+.full-width {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.submenu {
+    overflow-y: hidden;
+    transition: transform 300ms ease;
+    transform: scaleY(0);
+    transform-origin: top;
+    padding-left: 30px;
+}
+
+.submenu.expanded {
+    transform: scaleY(1);
+}
+
+.menu-button.rotated {
+    transform: rotate(180deg);
+    transition: all 0.2s ease-in-out;
+}
+
+/*============================== Router Lick Active Themes ==============================*/
+/*---------- Primary Theme ----------*/
+.active-link {
+    background-color: var(--routerlink-bg-color);
+    border-left: 3px solid var(--routerlink-border-color);
+}
+
+::ng-deep .active-link .mdc-list-item__primary-text,
+::ng-deep .active-link .mat-icon {
+    color: var(--routerlink-text-color) !important;
+}
+
+::ng-deep .active-link.mdc-list-item--with-leading-icon .mdc-list-item__start {
+    margin-left: 13px !important;
+}
+
+/*============================== Custom SorollBar For Side Bar ==============================*/
+::ng-deep .mat-drawer ::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+::ng-deep .mat-drawer ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::ng-deep .mat-drawer ::-webkit-scrollbar-thumb {
+    background: #8495f7;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::ng-deep .mat-drawer ::-webkit-scrollbar-thumb:hover {
+    background: #8495f7;
+}
+
+
+
+/*============================== Material Slide Toggle Css ==============================*/
+::ng-deep .mdc-switch__icons {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+::ng-deep .mat-mdc-slide-toggle .mdc-switch.mdc-switch--unselected:enabled .mdc-switch__icon {
+    fill: transparent !important;
+    background-image: url("../assets/toggle-switch/sun-svgrepo-com.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    width: 15px !important;
+    height: 15px !important;
+}
+
+::ng-deep .mat-mdc-slide-toggle .mdc-switch.mdc-switch--selected:enabled .mdc-switch__icon {
+    fill: transparent !important;
+    background-image: url("../assets/toggle-switch/moon-alt-svgrepo-com.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}
+
+
+
+/*============================== Remove Extra Space From List Icons ==============================*/
+::ng-deep .mdc-list-item--with-leading-icon .mdc-list-item__start {
+    margin-right: 10px !important;
+}
+
+/*============================== Router Outlet Container ==============================*/
+.container {
+    padding: 10px;
+}
+
+// ::ng-deep .mat-mdc-menu-panel.mat-mdc-menu-panel {
+//     background-color: var(--menu-bgColor) !important;
+// }
+
+// ::ng-deep .mdc-menu-surface {
+//     background-color: var(--menu-bgColor) !important;
+// }
+
+.menu-user-Img {
+    width: 30px;
+    height: 30px;
+    background-color: #8495f7;
+    border: 1px solid #3f51b5;
+    border-radius: 50%;
+    margin: 0 10px 0 0;
+}
+
+::ng-deep .mdc-list-item .mdc-list-item__primary-text {
+    display: flex !important;
+    align-items: center !important;
+    justify-self: center !important;
+}
+
+/*============================== Bottom Tooltip ==============================*/
+.bottom-tooltip-section {
+    position: relative;
+    margin-right: 15px;
+    text-decoration: none;
+    color: inherit;
+    width: max-content;
+    margin: 10px 10px 10px 10px;
+}
+
+/*-- Tooltip Social Media --*/
+.bottom-tooltip {
+    background: #262626;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    color: #ffff;
+    left: 50%;
+    padding: 0.5rem 0.4rem;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-47%, 85%);
+    transition: all 0.2s ease;
+    z-index: 1;
+    width: max-content;
+    padding: 0 10px;
+}
+
+.bottom-tooltip:after {
+    content: " ";
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
+    border: solid;
+    border-width: 10px 10px 0 10px;
+    border-color: transparent;
+    transform: translate(-60%, -297%) rotate(180deg);
+}
+
+.bottom-tooltip:after {
+    border-top-color: #262626;
+}
+
+.bottom-tooltip-section:hover .bottom-tooltip {
+    opacity: 1;
+    transform: translate(-47%, 135%);
+}
