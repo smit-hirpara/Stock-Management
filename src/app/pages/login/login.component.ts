@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { CrudService } from 'src/app/services/crud.service';
 import { ThemeService } from 'src/app/services/theme.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -169,7 +170,12 @@ export class LoginComponent {
       this.LoginIcon = false;
       localStorage.setItem('UserAuthorize', 'false')
       console.warn('User Not Exist');
-      alert('User Name And Password Incorrect');
+      Swal.fire({
+        title: 'Error!',
+        text: 'User Name And Password Incorrect',
+        icon: 'error',
+        confirmButtonText: 'Cool'
+      })
     }
   }
 

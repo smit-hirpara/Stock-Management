@@ -1,3 +1,18 @@
+.light-container {
+    --tooltip-bgColor: #262626;
+    --button-border-color:#1d86e9;
+    --button-hover-bg-color:#1d86e9;
+    --button-hover-text-color: #ffffff;
+}
+
+.dark-container {
+    --tooltip-bgColor: #919191;
+    --button-border-color:#ffffff;
+    --button-hover-bg-color:#ffffff;
+    --button-hover-text-color: #1d86e9;
+}
+
+
 .product-section-body {
     width: 100%;
     height: 91vh;
@@ -5,7 +20,15 @@
 }
 
 .add-button {
-    background-color: #1d86e9;
+    background-color: transparent;
+    border: 2px solid var(--button-border-color);
+    color: var(--button-border-color);
+    transition: all 0.2s ease-in-out;
+}
+
+.add-button:hover {
+    background-color: var(--button-hover-bg-color);
+    color: var(--button-hover-text-color);
 }
 
 .add-btn-section {
@@ -26,7 +49,7 @@
 
 /*-- Tooltip Social Media --*/
 .left-tooltip {
-    background: #262626;
+    background: var(--tooltip-bgColor);
     display: block;
     position: absolute;
     bottom: 0;
@@ -57,10 +80,95 @@
 }
 
 .left-tooltip:after {
-    border-top-color: #262626;
+    border-top-color: var(--tooltip-bgColor);
 }
 
 .left-tooltip-section:hover .left-tooltip {
     opacity: 1;
     transform: translate(-155%, -40%);
+}
+
+/*----- Cards Group -----*/
+.cards-group {
+    display: grid;
+    grid-template-columns: repeat(3,33.33%);
+}
+
+.card-body {
+    display: grid;
+    grid-template-columns: repeat(2,50%);
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    position: relative;
+}
+
+.quantity-badge {
+    background-color: #1d86e9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+}
+
+.product-img-section {
+    width: 100%;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+}
+.product-image {
+    width: 100%;
+    height: auto;
+}
+.product-details-section {
+    margin: 0 0 0 10px !important;
+    height: 100%;
+    position: relative;
+}
+.product-name {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1d86e9;
+    margin: 5px 0 10px 0;
+}
+.info-badges-group {
+    display: flex;
+    margin: 0 0 10px 0;
+}
+
+.green-badge,
+.primary-outline-badge {
+    background-color: green;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #fff;
+}
+.primary-outline-badge {
+    border: 1px solid #1d86e9;
+    color: #1d86e9;
+    background-color: transparent;
+    margin: 0 0 0 10px;
+}
+
+.sell-btn {
+    border: 2px solid #1d86e9;
+    color: #1d86e9 !important;
+    margin: 0 0 0 auto !important;
+    transition: all 0.2s ease-in-out;
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+}
+.sell-btn:hover {
+    background-color: #1d86e9;
+    color: #fff !important;
 }

@@ -7,8 +7,12 @@
       <mat-toolbar [color]="service.theme" class="toolbar">
         <!-- <span class="side-bar-text">Sidenav Left</span> -->
         <img
-          src="../assets/website-logo.png"
-          class="sidebar-logo" alt="">
+          src="../assets/light-teme-logo.png"
+          class="sidebar-logo" alt="" *ngIf="!service.themechange">
+          <img
+          src="../assets/dark-theme-logo.png"
+          class="sidebar-logo" alt="" *ngIf="service.themechange">
+
         <span class="example-spacer"></span>
         <button mat-icon-button class="example-icon favorite-icon"
           (click)="leftSideBar.toggle();service.closeSideBar()">
@@ -68,12 +72,21 @@
 
       <!--== Toolbar ==-->
       <mat-toolbar [color]="service.theme" class="toolbar">
-        <button mat-icon-button class="example-icon favorite-icon"
+        <button mat-icon-button
           *ngIf="service.toggleButton || service.sidebartogglebtn"
           (click)="leftSideBar.toggle(); service.openSideBar()">
           <mat-icon>dehaze</mat-icon>
         </button>
-        <span>Home</span>
+       <ng-container *ngIf="service.toggleButton || service.sidebartogglebtn || !authService.authorize">
+        <img
+        src="../assets/light-teme-logo.png"
+        class="sidebar-logo" alt="" *ngIf="!service.themechange">
+        <img
+        src="../assets/dark-theme-logo.png"
+        class="sidebar-logo" alt="" *ngIf="service.themechange">
+       </ng-container>
+       
+        <!-- <span>Home</span> -->
         <span class="example-spacer"></span>
 
         <div class="bottom-tooltip-section">
@@ -83,12 +96,12 @@
         </div>
 
         <!-- Account Icon / Menu -->
-        <button mat-icon-button class="example-icon" [matMenuTriggerFor]="accountmenu">
+        <button mat-icon-button class="example-icon" [matMenuTriggerFor]="accountmenu" *ngIf="authService.authorize">
           <mat-icon>account_circle</mat-icon>
         </button>
         <mat-menu #accountmenu="matMenu">
           <button mat-menu-item>
-            <img src="https://cdn3d.iconscout.com/3d/premium/thumb/student-5266576-4403850.png" alt=""
+            <img src="../assets/hollister-co-logo.png" alt=""
               class="menu-user-Img">
             <span>Jenil</span>
           </button>
@@ -113,7 +126,7 @@
         </mat-menu>
 
 
-        <button mat-icon-button class="example-icon" (click)="rightsidebar.toggle()">
+        <button mat-icon-button class="example-icon" (click)="rightsidebar.toggle()" *ngIf="authService.authorize">
           <mat-icon>filter_list</mat-icon>
         </button>
       </mat-toolbar>

@@ -26,6 +26,9 @@
 
     /*--- Menu Background Color ---*/
     --menu-bgColor: #ffff;
+
+    /*--- tooltip Color ---*/
+    --tooltip-bgColor: #262626;
 }
 
 /*---------- Dark Theme ----------*/
@@ -48,6 +51,9 @@
 
     /*--- Menu Background Color ---*/
     --menu-bgColor: #525252;
+
+     /*--- tooltip Color ---*/
+     --tooltip-bgColor: #919191;
 }
 
 
@@ -212,7 +218,7 @@
 
 /*-- Tooltip Social Media --*/
 .bottom-tooltip {
-    background: #262626;
+    background: var(--tooltip-bgColor);
     display: block;
     position: absolute;
     bottom: 0;
@@ -243,7 +249,7 @@
 }
 
 .bottom-tooltip:after {
-    border-top-color: #262626;
+    border-top-color: var(--tooltip-bgColor);
 }
 
 .bottom-tooltip-section:hover .bottom-tooltip {
