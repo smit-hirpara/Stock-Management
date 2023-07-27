@@ -15,10 +15,12 @@ export class AppComponent {
     this.service.windowSize();
 
     this.authService.GetloginUserfromDatabase();
+
+    // this.authService.GetLoginUserDetails;
   }
   sidebarItems = [
     { logo: 'home', link: 'products', text: 'Products' },
-    // { logo: 'business', link: 'about', text: 'Aout' },
+    { logo: 'history', link: 'history', text: 'History' },
     // { logo: 'store', link: 'gallery', text: 'Gallery' },
     // { logo: 'dashboard', link: 'gallery2', text: 'Gallery' },
     // { logo: 'playlist_add_check', link: 'contact', text: 'Risk Control' },

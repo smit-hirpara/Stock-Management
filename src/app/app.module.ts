@@ -20,12 +20,15 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ProductsComponent } from './pages/products/products.component';
+import { HistoryComponent } from './pages/history/history.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ProductsComponent
+    ProductsComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { ProductsComponent } from './pages/products/products.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,15 @@
+.user-img {
+    width: 40px;
+    margin: 10px 20px 10px 0;
+    background-color: #1d86e949;
+    border-radius: 50%;
+    border: 1.5px solid #1d86e9;
+}
+
+::ng-deep .mat-expansion-panel-header {
+    height: max-content !important;
+}
+
+::ng-deep .mat-expansion-panel-header.mat-expanded {
+    border-bottom: 1px solid rgb(228, 228, 228);
+}
