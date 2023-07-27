@@ -1,14 +1,14 @@
 .light-container {
     --tooltip-bgColor: #262626;
-    --button-border-color:#1d86e9;
-    --button-hover-bg-color:#1d86e9;
+    --button-border-color: #1d86e9;
+    --button-hover-bg-color: #1d86e9;
     --button-hover-text-color: #ffffff;
 }
 
 .dark-container {
     --tooltip-bgColor: #919191;
-    --button-border-color:#ffffff;
-    --button-hover-bg-color:#ffffff;
+    --button-border-color: #ffffff;
+    --button-hover-bg-color: #ffffff;
     --button-hover-text-color: #1d86e9;
 }
 
@@ -91,17 +91,16 @@
 /*----- Cards Group -----*/
 .cards-group {
     display: grid;
-    grid-template-columns: repeat(3,33.33%);
+    grid-template-columns: repeat(4, 25%);
 }
 
 .card-body {
-    display: grid;
-    grid-template-columns: repeat(2,50%);
+    display: flex;
+    // grid-template-columns: repeat(2, 50%);
     background-color: #fff;
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
-    position: relative;
 }
 
 .quantity-badge {
@@ -115,30 +114,37 @@
     font-size: 12px;
     border-radius: 50%;
     position: absolute;
-    top: -10px;
-    left: -10px;
+    top: -1px;
+    left: -1px;
 }
 
-.product-img-section {
-    width: 100%;
+.product-img-box {
+    width: max-content;
     background-color: #D9D9D9;
     border-radius: 10px;
 }
+
 .product-image {
-    width: 100%;
+    width: 150px;
     height: auto;
+    transition: all 0.2s ease-in-out;
 }
+
 .product-details-section {
     margin: 0 0 0 10px !important;
     height: 100%;
     position: relative;
+    width: 100%;
 }
+
 .product-name {
     font-size: 24px;
     font-weight: 600;
     color: #1d86e9;
     margin: 5px 0 10px 0;
+    transition: all 0.2s ease-in-out;
 }
+
 .info-badges-group {
     display: flex;
     margin: 0 0 10px 0;
@@ -151,7 +157,10 @@
     border-radius: 4px;
     font-size: 13px;
     color: #fff;
+    display: flex;
+    align-items: center;
 }
+
 .primary-outline-badge {
     border: 1px solid #1d86e9;
     color: #1d86e9;
@@ -166,9 +175,50 @@
     transition: all 0.2s ease-in-out;
     position: absolute;
     bottom: 0;
-    right: 10px;
+    right: 0;
 }
+
 .sell-btn:hover {
     background-color: #1d86e9;
     color: #fff !important;
+}
+
+@media screen and (max-width: 1600px) {
+    .cards-group {
+        grid-template-columns: repeat(3, 33.33%);
+    }
+
+    .product-image {
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .cards-group {
+        grid-template-columns: repeat(2, 50%);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .product-image {
+        width: 120px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cards-group {
+        display: block;
+    }
+
+    .quantity-badge {
+        top: -10px;
+    }
+
+    .product-details-section {
+        height: 120px;
+    }
+
+    .product-name {
+        font-size: 20px;
+    }
 }

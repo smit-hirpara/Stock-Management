@@ -1,20 +1,27 @@
 <section class="product-section-body light-container" [ngClass]="{'dark-container' : ThemeService.themechange}">
 
     <section class="cards-group">
-        <div class="card-body">
-            <div class="quantity-badge">20</div>
-            <div class="product-img-section">
-                <!-- <img src="assets/product-images/black_hoodi.png" alt="Product" class="product-image"> -->
-            </div>
-            <div class="product-details-section">
-                <p class="product-name">Product Name</p>
-                <div class="info-badges-group">
-                    <span class="green-badge">200$</span>
-                    <span class="primary-outline-badge">sm</span>
+        <ng-container *ngFor="let a of [1]">
+            <div class="card-body">
+                <div class="quantity-badge">20</div>
+                <div class="product-img-section">
+                    <!-- <img src="assets/product-images/black_hoodi.png" alt="Product" class="product-image"> -->
+                    <div class="product-img-box">
+                        <img src="https://cdn3d.iconscout.com/3d/premium/thumb/student-5266576-4403850.png"
+                            alt="Product" class="product-image">
+                    </div>
                 </div>
-                <button mat-button class="sell-btn">Purchase Now</button>
+                <div class="product-details-section">
+                    <p class="product-name">Product Name</p>
+                    <div class="info-badges-group">
+                        <span class="green-badge">200$</span>
+                        <span class="primary-outline-badge">sm</span>
+                    </div>
+                    <button mat-button class="sell-btn" style="align-self: end;">Purchase Now</button>
+                </div>
             </div>
-        </div>
+        </ng-container>
+
     </section>
 
     <!--========== Add Product btn ==========-->
