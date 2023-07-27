@@ -52,8 +52,9 @@
 }
 
 .form-header {
-    margin: 0 0 20px 0;
+    margin: 0 0 25px 0;
     color: var(--form-header-text-color);
+    font-size: 25px;
 }
 
 .loginAndSigninButton {
@@ -75,8 +76,21 @@
 }
 
 .form-footer {
+    // display: flex;
+    // justify-content: space-evenly;
+    margin: 10px 0 0 0;
+}
+
+.footer-btn {
+    width: 100%;
+}
+
+.footer-text {
     display: flex;
-    justify-content: space-evenly;
+    margin: 15px 0 0 0;
+    justify-content: center;
+    font-size: 15px;
+    color: var(--input-icon-color);
 }
 
 // change mat-input floating lable color

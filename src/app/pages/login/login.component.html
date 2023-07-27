@@ -59,9 +59,13 @@
                     confirmation password and password do not match.</mat-error>
             </mat-form-field>
             <div class="form-footer">
-                <button mat-raised-button color="primary" [disabled]="signupUser.invalid" (click)="SignUpUser()">SIGN
+                <button mat-raised-button color="primary" class="footer-btn" [disabled]="signupUser.invalid"
+                    (click)="SignUpUser()">SIGN
                     UP</button>
-                <button class="loginAndSigninButton" (click)="ChangeForm()">LOG IN</button>
+                <div class="footer-text">
+                    Already have an account ?
+                    <button class="loginAndSigninButton" (click)="ChangeForm()">LOG IN</button>
+                </div>
             </div>
         </form>
         <svg class="ft-green-tick" *ngIf="SignupIcon" xmlns="http://www.w3.org/2000/svg" height="100" width="100"
@@ -97,9 +101,13 @@
             </mat-form-field>
         </form>
         <div class="form-footer" *ngIf="!LoginIcon">
-            <button mat-raised-button color="primary" (click)="CheckUser()" [disabled]="loginform.invalid">Log
+            <button mat-raised-button color="primary" class="footer-btn" (click)="CheckUser()"
+                [disabled]="loginform.invalid">Log
                 in</button>
-            <button class="loginAndSigninButton" (click)="ChangeForm()">SIGN UP</button>
+            <div class="footer-text">
+                Don’t have an account ?
+                <button class="loginAndSigninButton" (click)="ChangeForm()">SIGN UP</button>
+            </div>
         </div>
 
         <svg class="ft-green-tick" *ngIf="LoginIcon" xmlns="http://www.w3.org/2000/svg" height="100" width="100"

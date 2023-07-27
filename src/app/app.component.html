@@ -6,12 +6,8 @@
       [opened]='$any(service.opensidebar) && authService.authorize' class="primary-sidebar">
       <mat-toolbar [color]="service.theme" class="toolbar">
         <!-- <span class="side-bar-text">Sidenav Left</span> -->
-        <img
-          src="../assets/light-teme-logo.png"
-          class="sidebar-logo" alt="" *ngIf="!service.themechange">
-          <img
-          src="../assets/dark-theme-logo.png"
-          class="sidebar-logo" alt="" *ngIf="service.themechange">
+        <img src="../assets/light-teme-logo.png" class="sidebar-logo" alt="" *ngIf="!service.themechange">
+        <img src="../assets/dark-theme-logo.png" class="sidebar-logo" alt="" *ngIf="service.themechange">
 
         <span class="example-spacer"></span>
         <button mat-icon-button class="example-icon favorite-icon"
@@ -72,20 +68,15 @@
 
       <!--== Toolbar ==-->
       <mat-toolbar [color]="service.theme" class="toolbar">
-        <button mat-icon-button
-          *ngIf="service.toggleButton || service.sidebartogglebtn"
+        <button mat-icon-button *ngIf="service.toggleButton || service.sidebartogglebtn"
           (click)="leftSideBar.toggle(); service.openSideBar()">
           <mat-icon>dehaze</mat-icon>
         </button>
-       <ng-container *ngIf="service.toggleButton || service.sidebartogglebtn || !authService.authorize">
-        <img
-        src="../assets/light-teme-logo.png"
-        class="sidebar-logo" alt="" *ngIf="!service.themechange">
-        <img
-        src="../assets/dark-theme-logo.png"
-        class="sidebar-logo" alt="" *ngIf="service.themechange">
-       </ng-container>
-       
+        <ng-container *ngIf="service.toggleButton || service.sidebartogglebtn || !authService.authorize">
+          <img src="../assets/light-teme-logo.png" class="sidebar-logo" alt="" *ngIf="!service.themechange">
+          <img src="../assets/dark-theme-logo.png" class="sidebar-logo" alt="" *ngIf="service.themechange">
+        </ng-container>
+
         <!-- <span>Home</span> -->
         <span class="example-spacer"></span>
 
@@ -100,29 +91,33 @@
           <mat-icon>account_circle</mat-icon>
         </button>
         <mat-menu #accountmenu="matMenu">
-          <button mat-menu-item>
-            <img src="../assets/hollister-co-logo.png" alt=""
-              class="menu-user-Img">
-            <span>Jenil</span>
-          </button>
-          <mat-divider></mat-divider>
-          <button mat-menu-item>
-            <mat-icon>call</mat-icon>
-            <span>+914982957392</span>
-          </button>
-          <button mat-menu-item>
-            <mat-icon>email</mat-icon>
-            <span>test123@gmail.com</span>
-          </button>
-          <mat-divider></mat-divider>
-          <button mat-menu-item>
-            <mat-icon>settings</mat-icon>
-            <span>Setting</span>
-          </button>
-          <button mat-menu-item>
-            <mat-icon>logout</mat-icon>
-            <span>Log Out</span>
-          </button>
+          <ng-container *ngFor="let data of authService.GetLoginUserDetails">
+            <button mat-menu-item>
+              <img src="https://cdn3d.iconscout.com/3d/premium/thumb/student-5266576-4403850.png" alt=""
+                class="menu-user-Img">
+              <span>{{data.FirstName}} {{data.LastName}}</span>
+              <img src="../assets/verify-icon.png" alt="" class="verify-icon" *ngIf="data.admin">
+            </button>
+            <mat-divider></mat-divider>
+            <button mat-menu-item>
+              <mat-icon>call</mat-icon>
+              <span>+91{{data.MobileNo}}</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>email</mat-icon>
+              <span>{{data.Email}}</span>
+            </button>
+            <mat-divider></mat-divider>
+            <!-- <button mat-menu-item>
+              <mat-icon>settings</mat-icon>
+              <span>Setting</span>
+            </button> -->
+            <button mat-menu-item (click)="logout()">
+              <mat-icon>logout</mat-icon>
+              <span>Log Out</span>
+            </button>
+          </ng-container>
+
         </mat-menu>
 
 

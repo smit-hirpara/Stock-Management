@@ -8,9 +8,13 @@ import { AuthService } from './services/auth.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  constructor(public service: ThemeService, public authService: AuthService) { }
+
   title = 'Stock-Management';
   ngOnInit(): void {
     this.service.windowSize();
+
+    this.authService.GetloginUserfromDatabase();
   }
   sidebarItems = [
     { logo: 'home', link: 'products', text: 'Products' },
@@ -29,5 +33,11 @@ export class AppComponent {
     // { logo: 'exit_to_app', link: '', text: 'Log out' },
   ]
 
-  constructor(public service: ThemeService, public authService: AuthService) { }
+  logout() {
+    localStorage.setItem('UserAuthorize', 'false');
+    this.authService.authorize = false;
+    if (!this.authService.authorize) {
+      this.authService.navigateLoginForm();
+    }
+  }
 }

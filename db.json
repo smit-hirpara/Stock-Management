@@ -14,6 +14,17 @@
       "Password": "Pal123",
       "RetypePassword": "Pal123",
       "id": 2
+    },
+    {
+      "FirstName": "smit",
+      "LastName": "hirpara",
+      "Email": "smit@gmail.com",
+      "MobileNo": "7901824554",
+      "DateOfBirth": "2005-10-14T18:30:00.000Z",
+      "Password": "smit4820T",
+      "RetypePassword": "smit4820T",
+      "id": 3,
+      "admin": true
     }
   ]
 }

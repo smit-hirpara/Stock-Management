@@ -52,8 +52,8 @@
     /*--- Menu Background Color ---*/
     --menu-bgColor: #525252;
 
-     /*--- tooltip Color ---*/
-     --tooltip-bgColor: #919191;
+    /*--- tooltip Color ---*/
+    --tooltip-bgColor: #919191;
 }
 
 
@@ -176,6 +176,18 @@
 /*============================== Remove Extra Space From List Icons ==============================*/
 ::ng-deep .mdc-list-item--with-leading-icon .mdc-list-item__start {
     margin-right: 10px !important;
+}
+
+.user-profile-details {
+    position: relative;
+}
+
+.verify-icon {
+    width: 20px;
+    height: auto;
+    position: absolute;
+    top: 5px;
+    right: 5px;
 }
 
 /*============================== Router Outlet Container ==============================*/
