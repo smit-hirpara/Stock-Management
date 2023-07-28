@@ -29,4 +29,7 @@ export class CrudService {
     return this.http.post(this.ProductDataBase, data);
   }
 
+  GetProduct() {
+    return this.http.get(this.ProductDataBase);
+  }
 }

@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { ThemeService } from '../../services/theme.service';
 import { AddProductComponent } from '../add-product/add-product.component';
 import { MatDialog } from '@angular/material/dialog';
+import { CrudService } from '../../services/crud.service';
 
 @Component({
   selector: 'app-products',
@@ -10,14 +11,16 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent {
-  constructor(public authService: AuthService, public ThemeService: ThemeService, private dialog: MatDialog) {
+  constructor(public authService: AuthService, public ThemeService: ThemeService, private dialog: MatDialog, private crudService: CrudService) {
 
     /*----------- Check User Authorize Or Not -----------*/
     if (!this.authService.authorize) {
       this.authService.navigateLoginForm();
     }
   }
-
+ngOnInit(): void {
+  this.getProduct();
+}
   products = [
     {
       images: [
@@ -41,5 +44,12 @@ export class ProductsComponent {
 
   addProduct() {
     this.dialog.open(AddProductComponent);
+  }
+
+  ProductsDetails: any;
+  getProduct() {
+    this.crudService.GetProduct().subscribe((res: any) => {
+      this.ProductsDetails = res;
+    })
   }
 }

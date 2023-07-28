@@ -28,6 +28,7 @@ export class AddProductComponent {
     console.warn(this.ProductInformation);
     this.CrudService.AddProduct(this.ProductInformation).subscribe((res: any) => {
       console.warn('product Add uccessfully');
+      // this.product.getProduct();
     });
   }
 

@@ -5,6 +5,9 @@ import { MatSlideToggleChange } from '@angular/material/slide-toggle';
   providedIn: 'root'
 })
 export class ThemeService {
+  GetProduct() {
+    throw new Error('Method not implemented.');
+  }
 
 
   constructor() { }
