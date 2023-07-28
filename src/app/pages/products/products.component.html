@@ -1,21 +1,21 @@
 <section class="product-section-body light-container" [ngClass]="{'dark-container' : ThemeService.themechange}">
 
     <section class="cards-group">
-        <ng-container *ngFor="let a of [1]">
+        <ng-container *ngFor="let product of products">
             <div class="card-body">
                 <div class="quantity-badge">20</div>
                 <div class="product-img-section">
-                    <!-- <img src="assets/product-images/black_hoodi.png" alt="Product" class="product-image"> -->
                     <div class="product-img-box">
-                        <img src="https://cdn3d.iconscout.com/3d/premium/thumb/student-5266576-4403850.png"
-                            alt="Product" class="product-image">
+                        <img src="{{product.img}}" alt="Product" class="product-image">
+                        <!-- <img src="https://cdn3d.iconscout.com/3d/premium/thumb/student-5266576-4403850.png"
+                            alt="Product" class="product-image"> -->
                     </div>
                 </div>
                 <div class="product-details-section">
-                    <p class="product-name">Product Name</p>
+                    <p class="product-name">{{product.name}}</p>
                     <div class="info-badges-group">
-                        <span class="green-badge">200$</span>
-                        <span class="primary-outline-badge">sm</span>
+                        <span class="green-badge">{{product.price}}$</span>
+                        <span class="primary-outline-badge">{{product.size}}</span>
                     </div>
                     <button mat-button class="sell-btn" style="align-self: end;">Purchase Now</button>
                 </div>

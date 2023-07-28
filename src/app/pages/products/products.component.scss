@@ -126,7 +126,7 @@
 
 .product-image {
     width: 150px;
-    height: auto;
+    height: 150px;
     transition: all 0.2s ease-in-out;
 }
 
@@ -190,6 +190,7 @@
 
     .product-image {
         width: 150px;
+        height: 150px;
     }
 }
 
@@ -202,6 +203,7 @@
 @media screen and (max-width: 1024px) {
     .product-image {
         width: 120px;
+        height: 120px;
     }
 }
 
