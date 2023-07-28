@@ -1,0 +1,76 @@
+<div mat-dialog-title>
+    <h4 class="m-0">Add New Product</h4>
+    <mat-icon class="dialog-close-btn" mat-dialog-close>clear</mat-icon>
+</div>
+
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="ProductDetails">
+        <div class="two-form-fields">
+            <div>
+                <mat-form-field appearance="outline" class="form-fields">
+                    <mat-label>Select Product Category</mat-label>
+                    <mat-select formControlName="Category">
+                        <mat-option value="option1">Option 1</mat-option>
+                        <mat-option value="option2">Option 2 (disabled)</mat-option>
+                        <mat-option value="option3">Option 3</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="outline" class="form-fields">
+                    <mat-label>Product Name</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="ProductName">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="three-form-fields">
+            <div>
+                <mat-form-field appearance="outline" class="form-fields">
+                    <mat-label>Select Product Size</mat-label>
+                    <mat-select formControlName="Size">
+                        <mat-option value="option1">Option 1</mat-option>
+                        <mat-option value="option2">Option 2 (disabled)</mat-option>
+                        <mat-option value="option3">Option 3</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="outline" class="form-fields">
+                    <mat-label>Product Price</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="Price">
+                    <mat-icon matSuffix>₹</mat-icon>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="outline" class="form-fields">
+                    <mat-label>Product Quantity</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="Quantity">
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+
+    <div class="three-form-fields">
+        <div class="formbold-mb-5 uplode-file-input">
+            <input type="file" name="file" id="file" #file multiple (change)="selectfile($event)">
+            <label for="file">
+                <div class="drop-box-texts">
+                    <i class="material-icons ">cloud_upload</i>
+                    <div class="formbold-drop-file">Choose File</div>
+                </div>
+            </label>
+        </div>
+        <ng-container *ngFor="let i = index;let image of images">
+            <!-- <ng-container *ngFor="let imgname of uploader;">  Image Name -->
+            <div class="priview-image-section">
+                <img [src]="image" class="uplode-file-priview">
+                <div class="close-btn" (click)="DeleteFiles(i)"><i class="material-icons">delete_outline</i></div>
+            </div>
+        </ng-container>
+    </div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <!-- <button mat-button mat-dialog-close>close</button> -->
+    <button mat-raised-button class="save-btn" (click)="SaveProduct()" [disabled]="images.length == 0">save</button>
+</mat-dialog-actions>

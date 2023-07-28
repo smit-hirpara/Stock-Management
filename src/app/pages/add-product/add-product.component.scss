@@ -1,0 +1,157 @@
+/*---------- Dialog Box Size ----------*/
+::ng-deep .mat-mdc-dialog-container .mdc-dialog__surface {
+    width: 800px;
+    min-width: 100px;
+}
+
+/*---------- Dialog Box Header ----------*/
+::ng-deep .mat-mdc-dialog-container .mdc-dialog__title {
+    border-bottom: 1px solid rgb(196, 196, 196);
+    color: #1d86e9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.dialog-close-btn {
+    height: max-content;
+    color: gray;
+    font-size: 17px;
+    transition: all 0.5s ease-in-out;
+}
+
+.dialog-close-btn:hover {
+    color: black;
+}
+
+::ng-deep .mat-mdc-dialog-container .mdc-dialog__title::before {
+    display: none !important;
+}
+
+/*---------- Dialog Box Content Box ----------*/
+::ng-deep .mdc-dialog__title+.mdc-dialog__content {
+    padding: 24px;
+}
+
+/*---------- 2 Form Fields Group ----------*/
+.two-form-fields {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+}
+
+.three-form-fields {
+    display: grid;
+    grid-template-columns: repeat(3, 33.33%);
+}
+
+.two-form-fields>div,
+.three-form-fields>div {
+    padding: 10px;
+}
+
+.form-fields {
+    width: 100%;
+}
+
+/*---------- Dialog Box Content Box ----------*/
+::ng-deep .form-fields .mat-mdc-form-field-subscript-wrapper {
+    display: none;
+}
+
+
+/* ========== Uplode File Input Field ============ */
+.uplode-file-input input {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+/* ========== Uplode File Input Box ============ */
+.uplode-file-input label {
+    outline: 2px dashed #1d86e9;
+    border-radius: 6px;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #EDEDED;
+    color: rgb(2, 2, 2);
+    font-size: 20px;
+    font-weight: 500;
+    margin: 5px 0;
+    height: 130px;
+}
+
+.drop-box-texts {
+    display: flex;
+    align-items: center;
+}
+
+/* ========== Uplode File Icon ============ */
+.drop-box-texts>i {
+    color: #1d86e9;
+    font-size: 30px;
+    margin: 0 5px 0 0;
+}
+
+/* ========== Uplode File images priview box ============ */
+.priview-image-section {
+    background-color: #a2cff8;
+    width: 70%;
+    border-radius: 5px;
+    padding: 5px !important;
+    height: auto;
+    margin: 10px auto 10px auto;
+    position: relative;
+    display: flex;
+}
+
+.priview-image-section>img {
+    border-radius: 5px;
+}
+
+/* ========== Uplode File images close btn ============ */
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+
+/* ========== images close btn icon ============ */
+.close-btn>i {
+    background-color: #ffffff;
+    border: 2px solid #116ebf;
+    border-radius: 50%;
+    font-size: 20px;
+    color: red;
+}
+
+/* ========== Uplode File Privew image ============ */
+.uplode-file-priview {
+    width: 100%;
+}
+
+.save-btn {
+    background-color: #116ebf;
+    padding: 10px 40px;
+    margin: 10px;
+    color: #fff;
+}
+
+.save-btn:disabled {
+    background-color: rgba(0, 0, 0, 0.12);
+    color: gray;
+}
+
+
+
+
+
+@media screen and (max-width: 768px) {
+    .two-form-fields {
+        display: block;
+    }
+}

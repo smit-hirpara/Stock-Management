@@ -1,15 +1,52 @@
 <mat-accordion>
-    <mat-expansion-panel>
-        <mat-expansion-panel-header>
-            <mat-panel-title>
-                <img src="https://cdn3d.iconscout.com/3d/premium/thumb/student-5266576-4403850.png" alt=""
-                    class="user-img">
-                Pal Dobariya
-            </mat-panel-title>
-            <mat-panel-description>
+    <ng-container *ngFor="let user of Users">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <img src="https://cdn3d.iconscout.com/3d/premium/thumb/student-5266576-4403850.png" alt=""
+                        class="user-img">
+                    <p class="user-name">{{user.FirstName}} {{user.LastName}}</p>
+                    <img src="../assets/verify-icon.png" alt="" class="verify-icon" *ngIf="user.admin">
+                </mat-panel-title>
+                <mat-panel-description>
 
-            </mat-panel-description>
-        </mat-expansion-panel-header>
-        <p>I'm visible because I am open</p>
-    </mat-expansion-panel>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <table mat-table [dataSource]="dataSource">
+
+                <ng-container matColumnDef="date">
+                    <th mat-header-cell cdkDrag *matHeaderCellDef> date </th>
+                    <td mat-cell *matCellDef="let element" class="gray-color"><i class="material-icons">date_range</i>
+                        {{element.date}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="product">
+                    <th mat-header-cell cdkDrag *matHeaderCellDef> Product </th>
+                    <td mat-cell *matCellDef="let element"> {{element.product}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="quantity">
+                    <th mat-header-cell cdkDrag *matHeaderCellDef> Quantity </th>
+                    <td mat-cell *matCellDef="let element"> <span class="quantity-badge">{{element.quantity}}</span>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="size">
+                    <th mat-header-cell cdkDrag *matHeaderCellDef> Size </th>
+                    <td mat-cell *matCellDef="let element"> <span class="size-badge">{{element.size}}</span> </td>
+                </ng-container>
+                <ng-container matColumnDef="price">
+                    <th mat-header-cell cdkDrag *matHeaderCellDef> Price </th>
+                    <td mat-cell *matCellDef="let element"> <span class="price-text">{{element.price}} $</span></td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="columns"></tr>
+                <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+            </table>
+
+        </mat-expansion-panel>
+    </ng-container>
+
 </mat-accordion>

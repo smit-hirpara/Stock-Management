@@ -9,17 +9,24 @@ export class CrudService {
 
   constructor(private http: HttpClient, private route: Router) { }
 
-  /*----- Login User Data Base -----*/
-  DatabaseURL = 'http://localhost:3000/Users';
+  /*======================= Login User Data Base =======================*/
+  UsersDateBase = 'http://localhost:3000/Users';
 
   /*----- Login user -----*/
   AddUser(data: any) {
-    return this.http.post(this.DatabaseURL, data);
+    return this.http.post(this.UsersDateBase, data);
   }
 
   /*----- Get Login Users -----*/
   GetUsers() {
-    return this.http.get(this.DatabaseURL);
+    return this.http.get(this.UsersDateBase);
+  }
+
+
+  /*======================= Login User Data Base =======================*/
+  ProductDataBase = 'http://localhost:3000/Products';
+  AddProduct(data: any) {
+    return this.http.post(this.ProductDataBase, data);
   }
 
 }

@@ -10,6 +10,62 @@
     height: max-content !important;
 }
 
+.user-name {
+    position: relative;
+    width: max-content;
+}
+
+.verify-icon {
+    width: 20px;
+    height: auto;
+    margin: -15px 0 0 2px;
+}
+
 ::ng-deep .mat-expansion-panel-header.mat-expanded {
     border-bottom: 1px solid rgb(228, 228, 228);
+}
+
+::ng-deep .mat-expansion-panel-header-description {
+    display: none !important;
+}
+
+::ng-deep .mat-expansion-panel-content {
+    overflow: scroll !important;
+}
+
+::ng-deep .mat-accordion .mat-expansion-panel {
+    margin: 0 0 10px 0;
+    border-radius: 4px !important;
+}
+
+::ng-deep .mdc-data-table__table {
+    width: 100%;
+    min-width: 700px !important;
+    overflow-x: scroll;
+}
+
+.gray-color {
+    color: rgb(173, 173, 173);
+}
+
+
+.quantity-badge {
+    background-color: #1d86e9;
+    color: rgb(253, 253, 253);
+    padding: 3px 15px;
+    font-size: 13px;
+    border-radius: 3px;
+}
+
+.size-badge {
+    border: 1.5px solid #1d86e9;
+    color: #1d86e9;
+    padding: 3px 15px;
+    font-size: 13px;
+    border-radius: 3px;
+}
+
+.price-text {
+    color: #1d86e9;
+    font-size: 17px;
 }

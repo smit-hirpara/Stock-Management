@@ -1,33 +1,52 @@
 <section class="product-section-body light-container" [ngClass]="{'dark-container' : ThemeService.themechange}">
 
     <section class="cards-group">
-        <ng-container *ngFor="let product of products">
+        <ng-container *ngFor="let product of products, let i = index">
             <div class="card-body">
                 <div class="quantity-badge">20</div>
                 <div class="product-img-section">
                     <div class="product-img-box">
-                        <img src="{{product.img}}" alt="Product" class="product-image">
-                        <!-- <img src="https://cdn3d.iconscout.com/3d/premium/thumb/student-5266576-4403850.png"
-                            alt="Product" class="product-image"> -->
+                        <img src="{{product.images}}" alt="Product" class="product-image"
+                            *ngIf="product.images.length == 1">
+                        <div id="carousel{{i}}" class="carousel slide product-image" data-bs-ride="carousel"
+                            *ngIf="product.images.length != 1">
+                            <div class="carousel-inner">
+                                <ng-container *ngFor="let images of product.images; let i = index">
+                                    <div class="carousel-item" [ngClass]="{ 'active': i == 0}">
+                                        <img src="{{images}}" class="product-image">
+                                    </div>
+                                </ng-container>
+
+                            </div>
+                            <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carousel' + i"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carousel' + i"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="product-details-section">
                     <p class="product-name">{{product.name}}</p>
                     <div class="info-badges-group">
-                        <span class="green-badge">{{product.price}}$</span>
+                        <span class="green-badge">{{product.price}} ₹</span>
                         <span class="primary-outline-badge">{{product.size}}</span>
                     </div>
                     <button mat-button class="sell-btn" style="align-self: end;">Purchase Now</button>
                 </div>
             </div>
         </ng-container>
-
     </section>
 
     <!--========== Add Product btn ==========-->
     <div class="add-btn-section">
         <div class="left-tooltip-section">
-            <button mat-fab class="add-button">
+            <button mat-fab class="add-button" (click)="addProduct()">
                 <mat-icon>add</mat-icon>
             </button>
             <span class="left-tooltip">Add Products</span>

@@ -22,13 +22,19 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { ProductsComponent } from './pages/products/products.component';
 import { HistoryComponent } from './pages/history/history.component';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTableModule } from '@angular/material/table';
+import { AddProductComponent } from './pages/add-product/add-product.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ProductsComponent,
-    HistoryComponent
+    HistoryComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +56,11 @@ import { MatExpansionModule } from '@angular/material/expansion';
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatTableModule,
+    MatDialogModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
