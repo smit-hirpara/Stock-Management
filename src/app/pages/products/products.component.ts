@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { ThemeService } from '../../services/theme.service';
 import { AddProductComponent } from '../add-product/add-product.component';
@@ -10,6 +10,10 @@ import { CrudService } from '../../services/crud.service';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
+
+@Injectable({
+  providedIn: 'root'
+})
 export class ProductsComponent {
   constructor(public authService: AuthService, public ThemeService: ThemeService, private dialog: MatDialog, private crudService: CrudService) {
 
@@ -18,9 +22,9 @@ export class ProductsComponent {
       this.authService.navigateLoginForm();
     }
   }
-ngOnInit(): void {
-  this.getProduct();
-}
+  ngOnInit(): void {
+    this.getProduct();
+  }
   products = [
     {
       images: [

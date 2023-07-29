@@ -80,7 +80,7 @@ export class LoginComponent {
           this.passwordSame = false;
           this.authService.authorize = true;
           localStorage.setItem('UserAuthorize', 'true');
-          let signupuserDetails: any = [this.signupUser.value];
+          let signupuserDetails: any = this.signupUser.value;
           localStorage.setItem('loginUser', JSON.stringify(signupuserDetails));
           this.authService.GetloginUserfromDatabase();
           console.warn(res);

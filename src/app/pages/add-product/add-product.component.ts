@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CrudService } from '../../services/crud.service';
+import { ProductsComponent } from '../products/products.component';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-add-product',
@@ -9,7 +11,7 @@ import { CrudService } from '../../services/crud.service';
 })
 export class AddProductComponent {
   ProductDetails!: FormGroup;
-  constructor(private fb: FormBuilder, private CrudService: CrudService) { }
+  constructor(private fb: FormBuilder, private CrudService: CrudService, private authService: AuthService, private productCompo: ProductsComponent) { }
   ngOnInit(): void {
     this.ProductDetails = this.fb.group({
       Category: ['', Validators.compose([Validators.required])],
@@ -22,13 +24,20 @@ export class AddProductComponent {
 
 
   ProductInformation: any;
+  loginUserDetails: any = {};
+  test: any;
   SaveProduct() {
     this.getCurrentDate();
-    this.ProductInformation = { ...this.ProductDetails.value, date: this.currentDate, image: this.images };
+    // this.loginUserDetails = localStorage.getItem('loginUser');
+    // console.warn(this.loginUserDetails);
+    this.authService.GetloginUserfromDatabase();
+    this.loginUserDetails = this.authService.GetLoginUserDetails[0];
+    console.warn(this.loginUserDetails);
+    this.ProductInformation = { ...this.ProductDetails.value, date: this.currentDate, image: this.images, user: this.loginUserDetails.FirstName };
     console.warn(this.ProductInformation);
     this.CrudService.AddProduct(this.ProductInformation).subscribe((res: any) => {
       console.warn('product Add uccessfully');
-      // this.product.getProduct();
+      this.productCompo.getProduct();
     });
   }
 

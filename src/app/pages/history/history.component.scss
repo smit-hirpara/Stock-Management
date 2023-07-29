@@ -13,6 +13,7 @@
 .user-name {
     position: relative;
     width: max-content;
+    margin: 0;
 }
 
 .verify-icon {
@@ -30,7 +31,7 @@
 }
 
 ::ng-deep .mat-expansion-panel-content {
-    overflow: scroll !important;
+    overflow-x: auto !important;
 }
 
 ::ng-deep .mat-accordion .mat-expansion-panel {
