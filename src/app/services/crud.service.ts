@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { productDetails } from '../pages/history/history.component';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,8 @@ import { Router } from '@angular/router';
 export class CrudService {
 
   constructor(private http: HttpClient, private route: Router) { }
+  ProductsDetails: productDetails[] = new Array<productDetails>;
+
 
   /*======================= Login User Data Base =======================*/
   UsersDateBase = 'http://localhost:3000/Users';
@@ -31,5 +34,12 @@ export class CrudService {
 
   GetProduct() {
     return this.http.get(this.ProductDataBase);
+  }
+
+  /*===== Get All Products =====*/
+  getProduct() {
+    this.GetProduct().subscribe((res: any) => {
+      this.ProductsDetails = res;
+    })
   }
 }

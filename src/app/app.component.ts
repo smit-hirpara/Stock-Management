@@ -16,12 +16,13 @@ export class AppComponent {
 
     this.authService.GetloginUserfromDatabase();
 
+    this.authService.userAuthorie();
     // this.authService.GetLoginUserDetails;
   }
   sidebarItems = [
     { logo: 'home', link: 'products', text: 'Products' },
     { logo: 'history', link: 'history', text: 'History' },
-    // { logo: 'store', link: 'gallery', text: 'Gallery' },
+    { logo: 'report', link: 'report', text: 'Report' },
     // { logo: 'dashboard', link: 'gallery2', text: 'Gallery' },
     // { logo: 'playlist_add_check', link: 'contact', text: 'Risk Control' },
     // { logo: 'whatshot', link: '', text: 'Fire' },

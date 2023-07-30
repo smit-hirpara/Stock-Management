@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CrudService } from '../../services/crud.service';
 import { ProductsComponent } from '../products/products.component';
 import { AuthService } from 'src/app/services/auth.service';
+import { productDetails, userDetails } from '../history/history.component';
 
 @Component({
   selector: 'app-add-product',
@@ -19,13 +20,14 @@ export class AddProductComponent {
       Size: ['', Validators.compose([Validators.required])],
       Price: ['', Validators.compose([Validators.required])],
       Quantity: ['', Validators.compose([Validators.required])],
-    })
+    });
+
+    this.authService.userAuthorie();
   }
 
 
-  ProductInformation: any;
-  loginUserDetails: any = {};
-  test: any;
+  ProductInformation: productDetails[] = new Array<productDetails>;
+  loginUserDetails: userDetails = new userDetails;
   SaveProduct() {
     this.getCurrentDate();
     // this.loginUserDetails = localStorage.getItem('loginUser');
@@ -37,7 +39,7 @@ export class AddProductComponent {
     console.warn(this.ProductInformation);
     this.CrudService.AddProduct(this.ProductInformation).subscribe((res: any) => {
       console.warn('product Add uccessfully');
-      this.productCompo.getProduct();
+      this.CrudService.getProduct();
     });
   }
 

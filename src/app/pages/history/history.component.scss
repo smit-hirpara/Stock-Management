@@ -39,6 +39,10 @@
     border-radius: 4px !important;
 }
 
+::ng-deep .mat-expansion-panel-body {
+    overflow: hidden;
+}
+
 ::ng-deep .mdc-data-table__table {
     width: 100%;
     min-width: 700px !important;

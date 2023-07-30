@@ -28,7 +28,7 @@
               </div>
             </mat-list-item>
           </ng-container>
-          <ng-container *ngIf="links.link == 'history'">
+          <ng-container *ngIf="links.link == 'history' && authService.userAuthorize">
             <mat-list-item [routerLink]="links.link" routerLinkActive="active-link">
               <mat-icon matListItemIcon class="sidebar-link-text">{{links.logo}}</mat-icon>
               <div matListItemTitle class="sidebar-link-text">{{links.text}}

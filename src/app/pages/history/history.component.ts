@@ -11,40 +11,70 @@ import { CrudService } from 'src/app/services/crud.service';
 })
 export class HistoryComponent {
   constructor(public authService: AuthService, public ThemeService: ThemeService, private crudService: CrudService) {
-
     /*----------- Check User Authorize Or Not -----------*/
     if (!this.authService.authorize) {
       this.authService.navigateLoginForm();
     }
-  }
 
+    this.authService.userAuthorie();
+  }
+  
   ngOnInit(): void {
     this.getUsers();
+    this.GetProduct();
   }
-
+  AllUsers: userDetails[] = new Array<userDetails>;
+  productDetails: productDetails[] = new Array<productDetails>;
+  filterUser: userDetails[] = new Array<userDetails>;
+  userHistory: productDetails[] = new Array<productDetails>;
   columns: string[] = ['date', 'product', 'quantity', 'size', 'price'];
 
-  Users: any;
+  /*===== Get All Users =====*/
   getUsers() {
     this.crudService.GetUsers().subscribe((res: any) => {
-      this.Users = res;
+      this.AllUsers = res;
     })
   }
 
-  /*----- Filter User -----*/
-  filterUser: any;
-  userHistory: any;
-  productDetails: any;
-  GetHistory(index: any) {
+  /*===== Get All Products =====*/
+  GetProduct() {
     this.crudService.GetProduct().subscribe((res: any) => {
       this.productDetails = res;
-      console.warn(this.productDetails);
-    })
-    /*----- Filter User -----*/
-    this.filterUser = this.Users.filter((data: any) => (data.id == index));
-    console.warn(this.filterUser);
+    });
+ }
 
-    this.userHistory = this.productDetails.filter((data: any) => (data.FirstName == this.filterUser.FirstName));
-    console.warn(this.userHistory);
+  /*===== Get User History Dynamically =====*/
+  GetHistory(index: any) {
+    this.GetProduct();
+    /*----- Filter User -----*/
+    this.filterUser = this.AllUsers.filter((data: any) => (data.id == index));
+
+    /*----- Filter User History -----*/
+      this.userHistory = this.productDetails.filter((data: any) => (data.user == this.filterUser[0].FirstName));
+    console.warn('user = ', this.productDetails);
   }
+}
+
+export class productDetails {
+  Category!: string;
+  Price!: string;
+  ProductName!: string;
+  Quantity!: number;
+  Size!: string;
+  date: any;
+  id!: number;
+  image: any;
+  user!:string
+}
+
+export class userDetails {
+  DateOfBirth: any;
+  Email: any;
+  FirstName!: string;
+  LastName!: string;
+  MobileNo!: string;
+  Password: any;
+  RetypePassword: any;
+  id!: number;
+  admin!: boolean;
 }

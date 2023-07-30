@@ -33,6 +33,7 @@ export class LoginComponent {
 
     /*----- Store Component Name -----*/
     // this.themeService.ComponentName = this.route.snapshot.routeConfig?.title;
+    this.authService.userAuthorie();
 
     /*=========== Log In Form ===========*/
     this.loginform = this.fb.group({

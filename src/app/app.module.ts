@@ -26,6 +26,7 @@ import { MatTableModule } from '@angular/material/table';
 import { AddProductComponent } from './pages/add-product/add-product.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
+import { ReportComponent } from './pages/report/report.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { MatSelectModule } from '@angular/material/select';
     LoginComponent,
     ProductsComponent,
     HistoryComponent,
-    AddProductComponent
+    AddProductComponent,
+    ReportComponent
   ],
   imports: [
     BrowserModule,

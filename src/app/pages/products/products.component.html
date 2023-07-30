@@ -1,7 +1,7 @@
 <section class="product-section-body light-container" [ngClass]="{'dark-container' : ThemeService.themechange}">
 
     <section class="cards-group">
-        <ng-container *ngFor="let product of ProductsDetails, let i = index">
+        <ng-container *ngFor="let product of crudService.ProductsDetails, let i = index">
             <div class="card-body">
                 <div class="quantity-badge">{{product.Quantity}}</div>
                 <div class="product-img-section">
