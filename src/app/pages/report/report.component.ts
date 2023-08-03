@@ -15,7 +15,9 @@ export class ReportComponent {
   chart: any;
   chart2: any;
   chart3: any;
-  ProductDetails: productDetails[] = new Array<productDetails>;
+  ProductData: any;
+  // ProductData: string[] = [];
+
 
   ngOnInit(): void {
     // this.crudService.getProduct();
@@ -136,10 +138,10 @@ export class ReportComponent {
 
   getProductDetails() {
     this.crudService.GetProduct().subscribe((res: any) => {
-      this.ProductDetails = res;
+      this.ProductData = res;
     })
     // console.warn(this.crudService.ProductsDetails);
-    console.warn(this.ProductDetails);
+    console.warn(this.ProductData);
   }
 
   productsQuantityes: any;

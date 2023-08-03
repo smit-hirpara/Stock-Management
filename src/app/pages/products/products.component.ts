@@ -37,5 +37,4 @@ export class ProductsComponent {
   SellProduct() {
     this.dialog.open(SellProductComponent);
   }
-
 }

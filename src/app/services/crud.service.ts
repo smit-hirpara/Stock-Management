@@ -9,7 +9,7 @@ import { productDetails } from '../pages/history/history.component';
 export class CrudService {
 
   constructor(private http: HttpClient, private route: Router) { }
-  ProductsDetails: productDetails[] = new Array<productDetails>;
+  ProductsDetails: productDetails[] = new Array<productDetails>();
 
 
   /*======================= Login User Data Base =======================*/
