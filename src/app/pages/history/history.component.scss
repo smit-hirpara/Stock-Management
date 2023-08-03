@@ -20,6 +20,7 @@
     width: 20px;
     height: auto;
     margin: -15px 0 0 2px;
+    user-select: none;
 }
 
 ::ng-deep .mat-expansion-panel-header.mat-expanded {
@@ -40,13 +41,12 @@
 }
 
 ::ng-deep .mat-expansion-panel-body {
-    overflow: hidden;
+    // overflow-x: scroll;
 }
 
 ::ng-deep .mdc-data-table__table {
     width: 100%;
     min-width: 700px !important;
-    overflow-x: scroll;
 }
 
 .gray-color {
@@ -73,4 +73,15 @@
 .price-text {
     color: #1d86e9;
     font-size: 17px;
+}
+
+
+.info-image-section {
+    text-align: center;
+}
+
+.data-not-found-img {
+    width: 200px;
+    min-width: 100px;
+    mix-blend-mode: multiply;
 }

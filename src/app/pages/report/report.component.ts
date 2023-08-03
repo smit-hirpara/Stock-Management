@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
+import { productDetails } from '../history/history.component';
+import { CrudService } from '../../services/crud.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-report',
@@ -8,92 +11,80 @@ import { Chart, registerables } from 'chart.js';
 })
 export class ReportComponent {
 
+  constructor(private crudService: CrudService, public authService: AuthService) { }
   chart: any;
   chart2: any;
   chart3: any;
+  ProductDetails: productDetails[] = new Array<productDetails>;
+
   ngOnInit(): void {
-    this.chart = document.getElementById('chart');
+    // this.crudService.getProduct();
+    this.getProductDetails();
+
+    // this.chart = document.getElementById('chart');
     this.chart2 = document.getElementById('chart2');
-    this.chart3 = document.getElementById('chart3');
+    // this.chart3 = document.getElementById('chart3');
     Chart.register(...registerables);
     this.loadChart();
+    // this.GetQuantity();
+
+    /*----------- Check User Authorize Or Not -----------*/
+    if (!this.authService.authorize) {
+      this.authService.navigateLoginForm();
+    }
+
   }
   Createchart: any;
   loadChart() {
-    this.Createchart = new Chart(this.chart, {
-      type: 'line',
-      data: {
-        datasets: [
-          {
-            data: [30,20,50,20,30,10,50],
-            label: 'Series 1',
-            backgroundColor: '#007bff',
-            tension: 0.2,
-            borderColor: '#007bff',
-          },
-          // {
-          //   label: "Sales",
-          //   data: [2, 3, 5, 3,],
-          //   backgroundColor: 'red',
-          //   borderColor: 'red',
-          //   tension: 0.2
-          // },
-          // {
-          //   label: "Profit",
-          //   data: [3, 4, 3, 1],
-          //   backgroundColor: 'green',
-          //   borderColor: 'green',
-          //   tension: 0.2
-          // }
-        ],
-        labels: [
-          'Uncompleted',
-          'Progress',
-          'Reviewed',
-          'Completed',
-        ],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        aspectRatio: 1,
-        scales: {
-          y: {
-            beginAtZero: false,
-          }
-        }
-      }
-    })
+    // this.Createchart = new Chart(this.chart, {
+    //   type: 'line',
+    //   data: {
+    //     datasets: [
+    //       {
+    //         data: [30, 20, 50, 20, 30, 10, 50],
+    //         label: 'Series 1',
+    //         backgroundColor: '#007bff',
+    //         tension: 0.2,
+    //         borderColor: '#007bff',
+    //       },
+    //     ],
+    //     labels: [
+    //       'Uncompleted',
+    //       'Progress',
+    //       'Reviewed',
+    //       'Completed',
+    //     ],
+    //   },
+    //   options: {
+    //     responsive: true,
+    //     maintainAspectRatio: false,
+    //     aspectRatio: 1,
+    //     scales: {
+    //       y: {
+    //         beginAtZero: false,
+    //       }
+    //     }
+    //   }
+    // })
 
     this.Createchart = new Chart(this.chart2, {
       type: 'bar',
       data: {
         datasets: [
           {
-            data: [30,20,50,20,30,10,50],
+            data: [30, 20, 50, 20, 30, 10, 50],
             label: 'Series 1',
             backgroundColor: '#007bff',
-            // tension: 0.2,
             borderColor: '#007bff',
           },
-          // {
-          //   label: "Sales",
-          //   data: [2, 3, 5, 3,],
-          //   backgroundColor: 'red',
-          //   borderColor: 'red',
-          //   tension: 0.2
-          // },
-          // {
-          //   label: "Profit",
-          //   data: [3, 4, 3, 1],
-          //   backgroundColor: 'green',
-          //   borderColor: 'green',
-          //   tension: 0.2
-          // }
         ],
         labels: [
           'Uncompleted',
           'Progress',
+          'Reviewed',
+          'Completed',
+          'Reviewed',
+          'Completed',
           'Reviewed',
           'Completed',
         ],
@@ -110,49 +101,51 @@ export class ReportComponent {
       }
     })
 
-    this.Createchart = new Chart(this.chart3, {
-      type: 'pie',
-      data: {
-        datasets: [
-          {
-            data: [30,20,50,20,30,10,50],
-            label: 'Series 1',
-            backgroundColor: '#007bff',
-            // tension: 0.2,
-            borderColor: '#007bff',
-          },
-          // {
-          //   label: "Sales",
-          //   data: [2, 3, 5, 3,],
-          //   backgroundColor: 'red',
-          //   borderColor: 'red',
-          //   tension: 0.2
-          // },
-          // {
-          //   label: "Profit",
-          //   data: [3, 4, 3, 1],
-          //   backgroundColor: 'green',
-          //   borderColor: 'green',
-          //   tension: 0.2
-          // }
-        ],
-        labels: [
-          'Uncompleted',
-          'Progress',
-          'Reviewed',
-          'Completed',
-        ],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        aspectRatio: 1,
-        scales: {
-          y: {
-            beginAtZero: false,
-          }
-        }
-      }
+    // this.Createchart = new Chart(this.chart3, {
+    //   type: 'pie',
+    //   data: {
+    //     datasets: [
+    //       {
+    //         data: [30, 20, 50, 20, 30, 10, 50],
+    //         label: 'Series 1',
+    //         backgroundColor: '#007bff',
+    //         borderColor: '#007bff',
+    //       },
+    //     ],
+    //     labels: [
+    //       'Uncompleted',
+    //       'Progress',
+    //       'Reviewed',
+    //       'Completed',
+    //     ],
+    //   },
+    //   options: {
+    //     responsive: true,
+    //     maintainAspectRatio: false,
+    //     aspectRatio: 1,
+    //     scales: {
+    //       y: {
+    //         beginAtZero: false,
+    //       }
+    //     }
+    //   }
+    // })
+  }
+
+
+
+  getProductDetails() {
+    this.crudService.GetProduct().subscribe((res: any) => {
+      this.ProductDetails = res;
     })
+    // console.warn(this.crudService.ProductsDetails);
+    console.warn(this.ProductDetails);
+  }
+
+  productsQuantityes: any;
+  GetQuantity() {
+    // for (const Product of this.crudService.ProductsDetails) {
+    //   this.productsQuantityes = Product;
+    // }
   }
 }

@@ -22,7 +22,7 @@ export class AppComponent {
   sidebarItems = [
     { logo: 'home', link: 'products', text: 'Products' },
     { logo: 'history', link: 'history', text: 'History' },
-    { logo: 'report', link: 'report', text: 'Report' },
+    { logo: 'trending_up', link: 'report', text: 'Report' },
     // { logo: 'dashboard', link: 'gallery2', text: 'Gallery' },
     // { logo: 'playlist_add_check', link: 'contact', text: 'Risk Control' },
     // { logo: 'whatshot', link: '', text: 'Fire' },

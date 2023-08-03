@@ -27,7 +27,7 @@ export class HistoryComponent {
   productDetails: productDetails[] = new Array<productDetails>;
   filterUser: userDetails[] = new Array<userDetails>;
   userHistory: productDetails[] = new Array<productDetails>;
-  columns: string[] = ['date', 'product', 'quantity', 'size', 'price'];
+  columns: string[] = ['date', 'Category', 'product', 'quantity', 'size', 'price'];
 
   /*===== Get All Users =====*/
   getUsers() {
@@ -51,7 +51,7 @@ export class HistoryComponent {
 
     /*----- Filter User History -----*/
     this.userHistory = this.productDetails.filter((data: any) => (data.user == this.filterUser[0].FirstName));
-    console.warn('user = ', this.productDetails);
+    console.warn('user history = ', this.userHistory);
   }
 }
 
