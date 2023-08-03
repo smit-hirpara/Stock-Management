@@ -9,9 +9,9 @@ export class AuthService {
 
   constructor(private route: Router) { }
   loginUserDetails: userDetails[] = new Array<userDetails>;
-  userAuthorize!: boolean;
+  userAuthorize!: any;
   authorizeValue = localStorage.getItem('UserAuthorize');
-  authorize: boolean = this.authorizeValue ? JSON.parse(this.authorizeValue) : false;
+  authorize: any = this.authorizeValue ? JSON.parse(this.authorizeValue) : false;
 
   GetLoginuserFormdatabase: any;
   GetLoginUserDetails: any;

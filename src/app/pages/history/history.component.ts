@@ -18,7 +18,7 @@ export class HistoryComponent {
 
     this.authService.userAuthorie();
   }
-  
+
   ngOnInit(): void {
     this.getUsers();
     this.GetProduct();
@@ -41,7 +41,7 @@ export class HistoryComponent {
     this.crudService.GetProduct().subscribe((res: any) => {
       this.productDetails = res;
     });
- }
+  }
 
   /*===== Get User History Dynamically =====*/
   GetHistory(index: any) {
@@ -50,7 +50,7 @@ export class HistoryComponent {
     this.filterUser = this.AllUsers.filter((data: any) => (data.id == index));
 
     /*----- Filter User History -----*/
-      this.userHistory = this.productDetails.filter((data: any) => (data.user == this.filterUser[0].FirstName));
+    this.userHistory = this.productDetails.filter((data: any) => (data.user == this.filterUser[0].FirstName));
     console.warn('user = ', this.productDetails);
   }
 }
@@ -64,7 +64,7 @@ export class productDetails {
   date: any;
   id!: number;
   image: any;
-  user!:string
+  user!: string
 }
 
 export class userDetails {

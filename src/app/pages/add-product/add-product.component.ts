@@ -27,11 +27,11 @@ export class AddProductComponent {
 
 
   ProductInformation: productDetails[] = new Array<productDetails>;
-  loginUserDetails: userDetails = new userDetails;
+  // loginUserDetails: userDetails = new userDetails;
+  loginUserDetails: any;
   SaveProduct() {
     this.getCurrentDate();
-    // this.loginUserDetails = localStorage.getItem('loginUser');
-    // console.warn(this.loginUserDetails);
+    this.loginUserDetails = localStorage.getItem('loginUser');
     this.authService.GetloginUserfromDatabase();
     this.loginUserDetails = this.authService.GetLoginUserDetails[0];
     console.warn(this.loginUserDetails);

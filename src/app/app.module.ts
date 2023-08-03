@@ -27,6 +27,7 @@ import { AddProductComponent } from './pages/add-product/add-product.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { ReportComponent } from './pages/report/report.component';
+import { SellProductComponent } from './pages/sell-product/sell-product.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { ReportComponent } from './pages/report/report.component';
     ProductsComponent,
     HistoryComponent,
     AddProductComponent,
-    ReportComponent
+    ReportComponent,
+    SellProductComponent
   ],
   imports: [
     BrowserModule,

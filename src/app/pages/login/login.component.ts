@@ -33,7 +33,6 @@ export class LoginComponent {
 
     /*----- Store Component Name -----*/
     // this.themeService.ComponentName = this.route.snapshot.routeConfig?.title;
-    this.authService.userAuthorie();
 
     /*=========== Log In Form ===========*/
     this.loginform = this.fb.group({
@@ -81,16 +80,14 @@ export class LoginComponent {
           this.passwordSame = false;
           this.authService.authorize = true;
           localStorage.setItem('UserAuthorize', 'true');
-          let signupuserDetails: any = this.signupUser.value;
+          let signupuserDetails: any = [this.signupUser.value];
           localStorage.setItem('loginUser', JSON.stringify(signupuserDetails));
           this.authService.GetloginUserfromDatabase();
-          console.warn(res);
         },
         error: (error: any) => {
           console.warn(error);
         },
         complete: () => {
-          console.warn('User Submit Successfullly');
           this.SignupIcon = true;
           setTimeout(() => {
             this.authService.navigateProducts();

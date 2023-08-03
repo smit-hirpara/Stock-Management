@@ -4,7 +4,8 @@ import { ThemeService } from '../../services/theme.service';
 import { AddProductComponent } from '../add-product/add-product.component';
 import { MatDialog } from '@angular/material/dialog';
 import { CrudService } from '../../services/crud.service';
-import { productDetails } from '../history/history.component';
+import { SellProductComponent } from '../sell-product/sell-product.component';
+// import { productDetails } from '../history/history.component';
 
 @Component({
   selector: 'app-products',
@@ -31,6 +32,10 @@ export class ProductsComponent {
   /*===== Add New Product =====*/
   addProduct() {
     this.dialog.open(AddProductComponent);
+  }
+
+  SellProduct() {
+    this.dialog.open(SellProductComponent);
   }
 
 }
