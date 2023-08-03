@@ -41,7 +41,7 @@
 }
 
 ::ng-deep .mat-expansion-panel-body {
-    // overflow-x: scroll;
+    overflow-y: hidden;
 }
 
 ::ng-deep .mdc-data-table__table {
