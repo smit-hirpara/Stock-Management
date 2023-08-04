@@ -1,6 +1,6 @@
+import { productDetails } from './../history/history.component';
 import { Component } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
-import { productDetails } from '../history/history.component';
 import { CrudService } from '../../services/crud.service';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -10,25 +10,24 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./report.component.scss']
 })
 export class ReportComponent {
+  productDetails: any;
 
   constructor(private crudService: CrudService, public authService: AuthService) { }
-  chart: any;
-  chart2: any;
-  chart3: any;
-  ProductData: any;
-  // ProductData: string[] = [];
+  barChart: any;
+  // ProductDetails: any;
+  ProductDetails: productDetails[] = new Array<productDetails>;
 
 
   ngOnInit(): void {
-    // this.crudService.getProduct();
     this.getProductDetails();
+    this.barChart = document.getElementById('barChart');
 
-    // this.chart = document.getElementById('chart');
-    this.chart2 = document.getElementById('chart2');
-    // this.chart3 = document.getElementById('chart3');
-    Chart.register(...registerables);
-    this.loadChart();
-    // this.GetQuantity();
+
+    setTimeout(() => {
+      this.GetQuantity();
+      Chart.register(...registerables);
+      this.loadChart();
+    }, 1000);
 
     /*----------- Check User Authorize Or Not -----------*/
     if (!this.authService.authorize) {
@@ -36,118 +35,44 @@ export class ReportComponent {
     }
 
   }
+
+
+  getProductDetails() {
+    this.crudService.GetProduct().subscribe((res: any) => {
+      this.ProductDetails = res;
+    });
+  }
+
+
+  productsQuantityes: any = [];
+  productName: any = [];
+  GetQuantity() {
+    for (let a = 0; a < this.ProductDetails.length; a++) {
+      this.productsQuantityes.push(this.ProductDetails[a].Quantity);
+      this.productName.push(this.ProductDetails[a].ProductName);
+    }
+  }
+
   Createchart: any;
   loadChart() {
-    // this.Createchart = new Chart(this.chart, {
-    //   type: 'line',
-    //   data: {
-    //     datasets: [
-    //       {
-    //         data: [30, 20, 50, 20, 30, 10, 50],
-    //         label: 'Series 1',
-    //         backgroundColor: '#007bff',
-    //         tension: 0.2,
-    //         borderColor: '#007bff',
-    //       },
-    //     ],
-    //     labels: [
-    //       'Uncompleted',
-    //       'Progress',
-    //       'Reviewed',
-    //       'Completed',
-    //     ],
-    //   },
-    //   options: {
-    //     responsive: true,
-    //     maintainAspectRatio: false,
-    //     aspectRatio: 1,
-    //     scales: {
-    //       y: {
-    //         beginAtZero: false,
-    //       }
-    //     }
-    //   }
-    // })
-
-    this.Createchart = new Chart(this.chart2, {
+    this.Createchart = new Chart(this.barChart, {
       type: 'bar',
       data: {
         datasets: [
           {
-            data: [30, 20, 50, 20, 30, 10, 50],
+            data: this.productsQuantityes,
             label: 'Series 1',
-            backgroundColor: '#007bff',
-            borderColor: '#007bff',
+            backgroundColor: '#1d86e9',
+            borderColor: '#1d86e9 ',
           },
         ],
-        labels: [
-          'Uncompleted',
-          'Progress',
-          'Reviewed',
-          'Completed',
-          'Reviewed',
-          'Completed',
-          'Reviewed',
-          'Completed',
-        ],
+        labels: this.productName
       },
       options: {
         responsive: true,
         maintainAspectRatio: false,
         aspectRatio: 1,
-        scales: {
-          y: {
-            beginAtZero: false,
-          }
-        }
       }
     })
-
-    // this.Createchart = new Chart(this.chart3, {
-    //   type: 'pie',
-    //   data: {
-    //     datasets: [
-    //       {
-    //         data: [30, 20, 50, 20, 30, 10, 50],
-    //         label: 'Series 1',
-    //         backgroundColor: '#007bff',
-    //         borderColor: '#007bff',
-    //       },
-    //     ],
-    //     labels: [
-    //       'Uncompleted',
-    //       'Progress',
-    //       'Reviewed',
-    //       'Completed',
-    //     ],
-    //   },
-    //   options: {
-    //     responsive: true,
-    //     maintainAspectRatio: false,
-    //     aspectRatio: 1,
-    //     scales: {
-    //       y: {
-    //         beginAtZero: false,
-    //       }
-    //     }
-    //   }
-    // })
-  }
-
-
-
-  getProductDetails() {
-    this.crudService.GetProduct().subscribe((res: any) => {
-      this.ProductData = res;
-    })
-    // console.warn(this.crudService.ProductsDetails);
-    console.warn(this.ProductData);
-  }
-
-  productsQuantityes: any;
-  GetQuantity() {
-    // for (const Product of this.crudService.ProductsDetails) {
-    //   this.productsQuantityes = Product;
-    // }
   }
 }

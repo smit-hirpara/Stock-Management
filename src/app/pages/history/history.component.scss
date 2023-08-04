@@ -51,6 +51,13 @@
 
 .gray-color {
     color: rgb(173, 173, 173);
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
+.gray-color>.material-icons {
+    margin: 0 10px 0 0;
 }
 
 
