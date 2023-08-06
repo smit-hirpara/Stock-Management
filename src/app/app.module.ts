@@ -28,6 +28,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { ReportComponent } from './pages/report/report.component';
 import { SellProductComponent } from './pages/sell-product/sell-product.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { SellProductComponent } from './pages/sell-product/sell-product.componen
     MatTableModule,
     MatDialogModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

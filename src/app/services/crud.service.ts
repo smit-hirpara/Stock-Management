@@ -25,6 +25,12 @@ export class CrudService {
     return this.http.get(this.UsersDateBase);
   }
 
+  /*----- Update Users -----*/
+  UpdateUser(id:any, value:any) {
+    return this.http.put(this.UsersDateBase + '/' + id, value);
+  }
+
+
 
   /*======================= Login User Data Base =======================*/
   ProductDataBase = 'http://localhost:3000/Products';

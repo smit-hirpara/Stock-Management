@@ -8,28 +8,8 @@
       "DateOfBirth": "2023-07-18T18:30:00.000Z",
       "Password": "Pal123",
       "RetypePassword": "Pal123",
-      "id": 1
-    },
-    {
-      "FirstName": "smit",
-      "LastName": "hirpara",
-      "Email": "smit@gmail.com",
-      "MobileNo": "7901824554",
-      "DateOfBirth": "2005-10-14T18:30:00.000Z",
-      "Password": "smit4820T",
-      "RetypePassword": "smit4820T",
-      "id": 2,
-      "admin": true
-    },
-    {
-      "FirstName": "jenil",
-      "LastName": "hirpara",
-      "Email": "jenil@gmail.com",
-      "MobileNo": "4829584928",
-      "DateOfBirth": "2023-07-06T18:30:00.000Z",
-      "Password": "Jenil123",
-      "RetypePassword": "Jenil123",
-      "id": 3
+      "id": 1,
+      "admin": false
     },
     {
       "FirstName": "dhruv",
@@ -39,7 +19,7 @@
       "DateOfBirth": "2005-10-14T18:30:00.000Z",
       "Password": "Dhruv123",
       "RetypePassword": "Dhruv123",
-      "id": 4,
+      "id": 2,
       "admin": true
     },
     {
@@ -50,8 +30,31 @@
       "DateOfBirth": "2023-08-15T18:30:00.000Z",
       "Password": "Krutik123",
       "RetypePassword": "Krutik123",
-      "id": 5,
+      "id": 3,
       "admin": true
+    },
+    {
+      "FirstName": "smit",
+      "LastName": "Hirpara",
+      "Email": "smit@gmail.com",
+      "MobileNo": "7016245544",
+      "DateOfBirth": "2005-02-07T18:30:00.000Z",
+      "Password": "smit4820T",
+      "RetypePassword": "smit4820T",
+      "id": 4,
+      "admin": true,
+      "mainAdmin": true
+    },
+    {
+      "FirstName": "Henil",
+      "LastName": "Hirpara",
+      "Email": "jenil@gmail.com",
+      "MobileNo": "3728593857",
+      "DateOfBirth": "2005-11-08T18:30:00.000Z",
+      "Password": "Jenil123",
+      "RetypePassword": "Jenil123",
+      "id": 5,
+      "admin": false
     }
   ],
   "Products": [

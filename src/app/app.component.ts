@@ -39,6 +39,7 @@ export class AppComponent {
   logout() {
     localStorage.setItem('UserAuthorize', 'false');
     this.authService.authorize = false;
+    localStorage.setItem('loginUser', '');
     if (!this.authService.authorize) {
       this.authService.navigateLoginForm();
     }

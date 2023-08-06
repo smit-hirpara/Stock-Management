@@ -1,12 +1,17 @@
 <mat-accordion>
-    <ng-container *ngFor="let user of AllUsers; let i = index">
+    <ng-container *ngFor="let user of AllUsers; let i = index;">
         <mat-expansion-panel (opened)="GetHistory(i+1)">
             <mat-expansion-panel-header>
                 <mat-panel-title>
-                    <img src="https://cdn3d.iconscout.com/3d/premium/thumb/student-5266576-4403850.png" alt=""
-                        class="user-img">
+                    <div class="title-left-section">
+                        <img src="https://cdn3d.iconscout.com/3d/premium/thumb/student-5266576-4403850.png" alt=""
+                        class="user-img">   
                     <p class="user-name">{{user.FirstName}} {{user.LastName}}</p>
                     <img src="../assets/verify-icon.png" alt="" class="verify-icon" *ngIf="user.admin">
+                    </div>
+                    <div *ngIf="authService.userAuthorize && user.FirstName != authService.GetLoginUserDetails[0].FirstName && !user.mainAdmin">
+                        <mat-checkbox class="example-margin" color="primary" [(ngModel)]="user.admin" (click)="UpdateUser(user.id, user)"></mat-checkbox>
+                    </div>
                 </mat-panel-title>
                 <mat-panel-description>
 
@@ -58,7 +63,6 @@
 
             <ng-container *ngIf="userHistory.length == 0">
                 <div class="info-image-section">
-                    <!-- <img src="../assets/data-not-found.png" alt="" class="data-not-found-img"> -->
                     <img src="../assets/no-data-found.jpg" alt="" class="data-not-found-img">
                 </div>
             </ng-container>

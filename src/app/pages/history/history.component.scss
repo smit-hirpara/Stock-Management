@@ -10,6 +10,9 @@
     height: max-content !important;
 }
 
+::ng-deep .mat-expansion-panel-header-title {
+    justify-content: space-between !important;
+}
 .user-name {
     position: relative;
     width: max-content;
@@ -60,6 +63,10 @@
     margin: 0 10px 0 0;
 }
 
+.title-left-section {
+    display: flex;
+    align-items: center;
+}
 
 .quantity-badge {
     background-color: #1d86e9;

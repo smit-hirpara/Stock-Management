@@ -51,7 +51,13 @@ export class HistoryComponent {
 
     /*----- Filter User History -----*/
     this.userHistory = this.productDetails.filter((data: any) => (data.user == this.filterUser[0].FirstName));
-    console.warn('user history = ', this.userHistory);
+  }
+
+  UpdateUser(id: any, value: any) {
+    console.warn(id, value)
+    this.crudService.UpdateUser(id, value).subscribe((res: any) => {
+      this.getUsers();
+    })
   }
 }
 
@@ -77,4 +83,5 @@ export class userDetails {
   RetypePassword: any;
   id!: number;
   admin!: boolean;
+  mainAdmin!: boolean;
 }
