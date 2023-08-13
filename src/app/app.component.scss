@@ -56,6 +56,9 @@
     --tooltip-bgColor: #919191;
 }
 
+::ng-deep .mat-drawer-content {
+    overflow-x: hidden !important;
+}
 
 /*========== Toolbar ==========*/
 .toolbar {

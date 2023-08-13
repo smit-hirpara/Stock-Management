@@ -45,6 +45,7 @@
 
 ::ng-deep .mat-expansion-panel-body {
     overflow-y: hidden;
+    position: relative;
 }
 
 ::ng-deep .mdc-data-table__table {
@@ -56,7 +57,7 @@
     color: rgb(173, 173, 173);
     display: flex;
     align-items: center;
-    height: 50px;
+    height: 52px;
 }
 
 .gray-color>.material-icons {
@@ -150,4 +151,14 @@
 .left-tooltip-section:hover .left-tooltip {
     opacity: 1;
     transform: translate(-130%, -5%);
+}
+
+::ng-deep .mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background {
+    border-color: #1d86e9 !important;
+    background-color: #1d86e9 !important;
+}
+.print-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
 }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { ThemeService } from '../../services/theme.service';
 import { CrudService } from 'src/app/services/crud.service';
-
+import { ExportToCsv } from 'export-to-csv';
 
 @Component({
   selector: 'app-history',
@@ -27,6 +27,7 @@ export class HistoryComponent {
   productDetails: productDetails[] = new Array<productDetails>;
   filterUser: userDetails[] = new Array<userDetails>;
   userHistory: productDetails[] = new Array<productDetails>;
+  ReportData: any;
   columns: string[] = ['date', 'Category', 'product', 'quantity', 'size', 'price'];
 
   /*===== Get All Users =====*/
@@ -51,6 +52,12 @@ export class HistoryComponent {
 
     /*----- Filter User History -----*/
     this.userHistory = this.productDetails.filter((data: any) => (data.user == this.filterUser[0].FirstName));
+    
+    this.ReportData = this.userHistory;
+    for (let a = 0; a < this.ReportData.length; a++) {
+      delete this.ReportData[a].id;
+      delete this.ReportData[a].image;
+    }
   }
 
   UpdateUser(id: any, value: any) {
@@ -58,6 +65,21 @@ export class HistoryComponent {
     this.crudService.UpdateUser(id, value).subscribe((res: any) => {
       this.getUsers();
     })
+  } 
+  export() {
+    const options = { 
+      fieldSeparator: ',',
+      quoteStrings: '"',
+      decimalSeparator: '.',
+      showLabels: true, 
+      showTitle: true,
+      title: this.filterUser[0].FirstName+' History Report',
+      useTextFile: false,
+      useBom: true,
+      headers: ['Category', 'ProductName', 'Size', 'Price', 'Quantity', 'Date', 'User']
+  };
+   const csvExporter = new ExportToCsv(options);
+    csvExporter.generateCsv(this.ReportData);
   }
 }
 

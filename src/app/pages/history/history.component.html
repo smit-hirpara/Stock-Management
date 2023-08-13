@@ -19,8 +19,9 @@
 
                 </mat-panel-description>
             </mat-expansion-panel-header>
-
+            
             <ng-container *ngIf="userHistory.length != 0">
+                <button mat-icon-button (click)="export()" class="print-button"><mat-icon>print</mat-icon></button>
                 <table mat-table [dataSource]="userHistory">
 
                     <ng-container matColumnDef="date">
