@@ -1,4 +1,4 @@
-![Screenshot 2023-08-14 094329](https://github.com/smit-hirpara/Stock-Management/assets/120456583/f50debd9-bced-471a-9958-5ca29ec51dd5)![image](https://github.com/smit-hirpara/Stock-Management/assets/120456583/96cd3bc4-0380-4f43-854d-7ea48d636143)# StockManagement
+4f43-854d-7ea48d636143)# StockManagement
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
 
