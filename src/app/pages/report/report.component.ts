@@ -33,16 +33,13 @@ export class ReportComponent {
     if (!this.authService.authorize) {
       this.authService.navigateLoginForm();
     }
-
   }
-
 
   getProductDetails() {
     this.crudService.GetProduct().subscribe((res: any) => {
       this.ProductDetails = res;
     });
   }
-
 
   productsQuantityes: any = [];
   productName: any = [];
@@ -66,7 +63,7 @@ export class ReportComponent {
             borderColor: '#1d86e9 ',
           },
         ],
-        labels: this.productName
+        labels: this.productName,
       },
       options: {
         responsive: true,

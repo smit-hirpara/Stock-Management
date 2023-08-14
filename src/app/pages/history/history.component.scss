@@ -1,3 +1,13 @@
+.light-container {
+    --card-bg-collor: #ffff;
+    --text-color: rgb(173, 173, 173);
+}
+
+.dark-container {
+    --card-bg-collor: rgb(185, 185, 185);
+    --text-color: rgb(0, 0, 0);
+}
+
 .user-img {
     width: 40px;
     margin: 10px 20px 10px 0;
@@ -13,6 +23,7 @@
 ::ng-deep .mat-expansion-panel-header-title {
     justify-content: space-between !important;
 }
+
 .user-name {
     position: relative;
     width: max-content;
@@ -41,6 +52,16 @@
 ::ng-deep .mat-accordion .mat-expansion-panel {
     margin: 0 0 10px 0;
     border-radius: 4px !important;
+    background-color: var(--card-bg-collor);
+}
+
+::ng-deep .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]):hover {
+    background-color: var(--card-bg-collor) !important;
+}
+
+
+.data-table {
+    background-color: var(--card-bg-collor) !important;
 }
 
 ::ng-deep .mat-expansion-panel-body {
@@ -54,7 +75,7 @@
 }
 
 .gray-color {
-    color: rgb(173, 173, 173);
+    color: var(--text-color);
     display: flex;
     align-items: center;
     height: 52px;
@@ -157,6 +178,7 @@
     border-color: #1d86e9 !important;
     background-color: #1d86e9 !important;
 }
+
 .print-button {
     position: absolute;
     top: 5px;
