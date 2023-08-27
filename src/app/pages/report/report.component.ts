@@ -1,5 +1,5 @@
 import { productDetails } from './../history/history.component';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 import { CrudService } from '../../services/crud.service';
 import { AuthService } from 'src/app/services/auth.service';
@@ -10,11 +10,12 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./report.component.scss']
 })
 export class ReportComponent {
-  productDetails: any;
+  /*========= Services =========*/
+  _crudService = inject(CrudService);
+  _authService = inject(AuthService);
 
-  constructor(private crudService: CrudService, public authService: AuthService) { }
+
   barChart: any;
-  // ProductDetails: any;
   ProductDetails: productDetails[] = new Array<productDetails>;
 
 
@@ -30,15 +31,15 @@ export class ReportComponent {
     }, 1000);
 
     /*----------- Check User Authorize Or Not -----------*/
-    if (!this.authService.authorize) {
-      this.authService.navigateLoginForm();
+    if (!this._authService.authorize) {
+      this._authService.navigateLoginForm();
     }
 
   }
 
 
   getProductDetails() {
-    this.crudService.GetProduct().subscribe((res: any) => {
+    this._crudService.GetProduct().subscribe((res: any) => {
       this.ProductDetails = res;
     });
   }

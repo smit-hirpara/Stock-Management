@@ -1,7 +1,7 @@
-<section class="product-section-body light-container" [ngClass]="{'dark-container' : ThemeService.themechange}">
+<section class="product-section-body light-container" [ngClass]="{'dark-container' : _ThemeService.themechange}">
 
     <section class="cards-group">
-        <ng-container *ngFor="let product of crudService.ProductsDetails, let i = index">
+        <ng-container *ngFor="let product of _crudService.ProductsDetails, let i = index">
             <div class="card-body">
                 <div class="quantity-badge">{{product.Quantity}}</div>
                 <div class="product-img-section">
@@ -37,7 +37,7 @@
                         <span class="green-badge">{{product.Price}} ₹</span>
                         <span class="primary-outline-badge">{{product.Size}}</span>
                     </div>
-                    <button mat-button class="sell-btn" style="align-self: end;" (click)="SellProduct()">Purchase
+                    <button mat-button class="sell-btn" style="align-self: end;" (click)="SellProduct(product.id)">Purchase
                         Now</button>
                 </div>
             </div>

@@ -1,10 +1,11 @@
-import { Component, Injectable } from '@angular/core';
+import { Component, Injectable, inject } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { ThemeService } from '../../services/theme.service';
 import { AddProductComponent } from '../add-product/add-product.component';
 import { MatDialog } from '@angular/material/dialog';
 import { CrudService } from '../../services/crud.service';
 import { SellProductComponent } from '../sell-product/sell-product.component';
+import { Router } from '@angular/router';
 // import { productDetails } from '../history/history.component';
 
 @Component({
@@ -17,24 +18,31 @@ import { SellProductComponent } from '../sell-product/sell-product.component';
   providedIn: 'root'
 })
 export class ProductsComponent {
-  constructor(public authService: AuthService, public ThemeService: ThemeService, private dialog: MatDialog, public crudService: CrudService) {
-    /*----------- Check User Authorize Or Not -----------*/
-    if (!this.authService.authorize) {
-      this.authService.navigateLoginForm();
-    }
-  }
-  ngOnInit(): void {
-    this.crudService.getProduct();
+  /*========= Services =========*/
+  _authService = inject(AuthService);
+  _ThemeService = inject(ThemeService);
+  _dialog = inject(MatDialog);
+  _crudService = inject(CrudService);
+  _router = inject(Router);
 
-    this.authService.userAuthorie();
+  ngOnInit(): void {
+    this._crudService.getProduct();
+
+    this._authService.userAuthorie();
+
+    /*----------- Check User Authorize Or Not -----------*/
+    if (!this._authService.authorize) {
+      this._authService.navigateLoginForm();
+    }
   }
 
   /*===== Add New Product =====*/
   addProduct() {
-    this.dialog.open(AddProductComponent);
+    this._dialog.open(AddProductComponent);
   }
 
-  SellProduct() {
-    this.dialog.open(SellProductComponent);
+  SellProduct(id:any) {
+    this._dialog.open(SellProductComponent);
+    this._router.navigate(['/products'], { queryParams: { id: id } });
   }
 }

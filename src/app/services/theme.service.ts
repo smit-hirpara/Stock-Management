@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,7 @@ export class ThemeService {
     throw new Error('Method not implemented.');
   }
 
-
-  constructor() { }
+  constructor( private _snackBar: MatSnackBar) { }
   sideBarMode = 'side';
   toggleButton = false;
   opensidebar = true;
@@ -83,5 +83,17 @@ export class ThemeService {
       localStorage.setItem('ThemeChange', 'false');
       localStorage.setItem('sidebartheme', 'primary');
     }
+  }
+
+  /*=========== Snack Bar ===========*/
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+  openSnackBar(Value: any) {
+    this._snackBar.open(Value, 'Cancel', {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      duration: 3 * 1000,
+      panelClass: ['green-bar']
+    });
   }
 }

@@ -1,9 +1,10 @@
-import { Component, Injectable } from '@angular/core';
+import { Component, Injectable, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CrudService } from '../../services/crud.service';
 import { ProductsComponent } from '../products/products.component';
 import { AuthService } from 'src/app/services/auth.service';
 import { productDetails, userDetails } from '../history/history.component';
+import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-add-product',
@@ -11,10 +12,16 @@ import { productDetails, userDetails } from '../history/history.component';
   styleUrls: ['./add-product.component.scss']
 })
 export class AddProductComponent {
+    /*========= Services =========*/
   ProductDetails!: FormGroup;
-  constructor(private fb: FormBuilder, private CrudService: CrudService, private authService: AuthService, private productCompo: ProductsComponent) { }
+  _fb = inject(FormBuilder); 
+  _CrudService = inject(CrudService);
+  _authService = inject(AuthService);
+  _productCompo = inject(ProductsComponent);
+  _themeService = inject(ThemeService);
+  
   ngOnInit(): void {
-    this.ProductDetails = this.fb.group({
+    this.ProductDetails = this._fb.group({
       Category: ['', Validators.compose([Validators.required])],
       ProductName: ['', Validators.compose([Validators.required])],
       Size: ['', Validators.compose([Validators.required])],
@@ -22,7 +29,7 @@ export class AddProductComponent {
       Quantity: ['', Validators.compose([Validators.required])],
     });
 
-    this.authService.userAuthorie();
+    this._authService.userAuthorie();
   }
 
 
@@ -32,14 +39,14 @@ export class AddProductComponent {
   SaveProduct() {
     this.getCurrentDate();
     this.loginUserDetails = localStorage.getItem('loginUser');
-    this.authService.GetloginUserfromDatabase();
-    this.loginUserDetails = this.authService.GetLoginUserDetails[0];
+    this._authService.GetloginUserfromDatabase();
+    this.loginUserDetails = this._authService.GetLoginUserDetails[0];
     console.warn(this.loginUserDetails);
     this.ProductInformation = { ...this.ProductDetails.value, date: this.currentDate, image: this.images, user: this.loginUserDetails.FirstName };
     console.warn(this.ProductInformation);
-    this.CrudService.AddProduct(this.ProductInformation).subscribe((res: any) => {
-      console.warn('product Add uccessfully');
-      this.CrudService.getProduct();
+    this._CrudService.AddProduct(this.ProductInformation).subscribe((res: any) => {
+      this._themeService.openSnackBar('Product Added Success Fully');
+      this._CrudService.getProduct();
     });
   }
 

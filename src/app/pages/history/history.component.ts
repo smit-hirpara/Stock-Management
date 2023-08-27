@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { ThemeService } from '../../services/theme.service';
 import { CrudService } from 'src/app/services/crud.service';
@@ -10,18 +10,21 @@ import { ExportToCsv } from 'export-to-csv';
   styleUrls: ['./history.component.scss']
 })
 export class HistoryComponent {
-  constructor(public authService: AuthService, public ThemeService: ThemeService, private crudService: CrudService) {
-    /*----------- Check User Authorize Or Not -----------*/
-    if (!this.authService.authorize) {
-      this.authService.navigateLoginForm();
-    }
-
-    this.authService.userAuthorie();
-  }
+  /*========= Services =========*/
+  _authService = inject(AuthService);
+  _ThemeService = inject(ThemeService);
+  _crudService = inject(CrudService);
 
   ngOnInit(): void {
     this.getUsers();
     this.GetProduct();
+
+    /*----------- Check User Authorize Or Not -----------*/
+    if (!this._authService.authorize) {
+      this._authService.navigateLoginForm();
+    }
+
+    this._authService.userAuthorie();
   }
   AllUsers: userDetails[] = new Array<userDetails>;
   productDetails: productDetails[] = new Array<productDetails>;
@@ -32,14 +35,14 @@ export class HistoryComponent {
 
   /*===== Get All Users =====*/
   getUsers() {
-    this.crudService.GetUsers().subscribe((res: any) => {
+    this._crudService.GetUsers().subscribe((res: any) => {
       this.AllUsers = res;
     })
   }
 
   /*===== Get All Products =====*/
   GetProduct() {
-    this.crudService.GetProduct().subscribe((res: any) => {
+    this._crudService.GetProduct().subscribe((res: any) => {
       this.productDetails = res;
     });
   }
@@ -62,7 +65,7 @@ export class HistoryComponent {
 
   UpdateUser(id: any, value: any) {
     console.warn(id, value)
-    this.crudService.UpdateUser(id, value).subscribe((res: any) => {
+    this._crudService.UpdateUser(id, value).subscribe((res: any) => {
       this.getUsers();
     })
   } 

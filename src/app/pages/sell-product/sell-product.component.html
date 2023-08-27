@@ -4,36 +4,42 @@
 </div>
 
 <mat-dialog-content class="mat-typography">
-    <form>
+    <form [formGroup]="SellProduct">
         <div class="two-form-fields">
             <div>
                 <mat-form-field class="form-fields" appearance="outline">
                     <mat-label>First name</mat-label>
-                    <input matInput>
+                    <input matInput formControlName="firstName">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="form-fields" appearance="outline">
+                    <mat-label>Last name</mat-label>
+                    <input matInput formControlName="lastName">
                 </mat-form-field>
             </div>
             <div>
                 <mat-form-field class="form-fields" appearance="outline">
                     <mat-label>Email Address</mat-label>
-                    <input matInput>
+                    <input matInput formControlName="Email">
                 </mat-form-field>
             </div>
             <div>
                 <mat-form-field class="form-fields" appearance="outline">
                     <mat-label>Phone Number</mat-label>
-                    <input matInput>
+                    <input matInput formControlName="phoneNumber" maxlength="10">
                 </mat-form-field>
             </div>
             <div>
                 <mat-form-field class="form-fields" appearance="outline">
                     <mat-label>Product Name</mat-label>
-                    <input matInput>
+                    <input matInput formControlName="productName">
                 </mat-form-field>
             </div>
             <div>
                 <mat-form-field appearance="outline" class="form-fields">
                     <mat-label>Select Product Size</mat-label>
-                    <mat-select formControlName="Size">
+                    <mat-select formControlName="productSize">
                         <mat-option value="xs">xs</mat-option>
                         <mat-option value="sm">sm</mat-option>
                         <mat-option value="ms">md</mat-option>
@@ -46,12 +52,12 @@
             <div>
                 <mat-form-field class="form-fields" appearance="outline">
                     <mat-label>Product Quantity</mat-label>
-                    <input matInput>
+                    <input matInput formControlName="Quantity">
                 </mat-form-field>
             </div>
         </div>
     </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-    <button mat-raised-button class="sell-btn" mat-dialog-close>Sell Product</button>
+    <button mat-raised-button class="sell-btn" mat-dialog-close (click)="sellProduct()">Sell Product</button>
 </mat-dialog-actions>

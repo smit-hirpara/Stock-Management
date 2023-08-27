@@ -32,12 +32,14 @@ export class CrudService {
 
 
 
-  /*======================= Login User Data Base =======================*/
+  /*======================= Products Base =======================*/
   ProductDataBase = 'http://localhost:3000/Products';
+  /*----- Add Product -----*/
   AddProduct(data: any) {
     return this.http.post(this.ProductDataBase, data);
   }
 
+  /*----- Get Product -----*/
   GetProduct() {
     return this.http.get(this.ProductDataBase);
   }
@@ -47,5 +49,10 @@ export class CrudService {
     this.GetProduct().subscribe((res: any) => {
       this.ProductsDetails = res;
     })
+  }
+
+  /*----- Get Product -----*/
+  UpdateProduct(id:any, value:any) {
+    return this.http.put(this.ProductDataBase + '/' + id, value);
   }
 }
