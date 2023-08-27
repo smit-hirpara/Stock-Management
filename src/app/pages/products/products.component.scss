@@ -4,6 +4,7 @@
     --button-bg-color: #fff;
     --button-hover-bg-color: #1d86e9;
     --button-hover-text-color: #ffffff;
+    --cards-bg-color: #ffff;
 }
 
 .dark-container {
@@ -12,6 +13,7 @@
     --button-bg-color: #4f4f4f;
     --button-hover-bg-color: #ffffff;
     --button-hover-text-color: #1d86e9;
+    --cards-bg-color: rgb(185, 185, 185);
 }
 
 
@@ -102,7 +104,7 @@
 .card-body {
     display: flex;
     // grid-template-columns: repeat(2, 50%);
-    background-color: #fff;
+    background-color: var(--cards-bg-color);
     border-radius: 10px;
     padding: 10px;
     margin: 10px;

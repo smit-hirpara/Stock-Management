@@ -55,6 +55,17 @@
       "RetypePassword": "Jenil123",
       "id": 5,
       "admin": false
+    },
+    {
+      "FirstName": "dhaval",
+      "LastName": "chavda",
+      "Email": "dhaval@gmail.com",
+      "MobileNo": "3795487205",
+      "DateOfBirth": "1995-06-07T18:30:00.000Z",
+      "Password": "Dhaval123",
+      "RetypePassword": "Dhaval123",
+      "id": 6,
+      "admin": true
     }
   ],
   "Products": [

@@ -1,4 +1,4 @@
-# StockManagement
+4f43-854d-7ea48d636143)# StockManagement
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
 
@@ -25,3 +25,4 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![Screenshot 2023-08-14 094329](https://github.com/smit-hirpara/Stock-Management/assets/120456583/35c19d67-daaf-49a4-9f68-dba0f690682a)
