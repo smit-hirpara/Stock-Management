@@ -45,7 +45,7 @@ export class AddProductComponent {
     this.ProductInformation = { ...this.ProductDetails.value, date: this.currentDate, image: this.images, user: this.loginUserDetails.FirstName };
     console.warn(this.ProductInformation);
     this._CrudService.AddProduct(this.ProductInformation).subscribe((res: any) => {
-      this._themeService.openSnackBar('Product Added Success Fully');
+      this._themeService.openSnackBar('Product Added Success Fully', 'greenPannel');
       this._CrudService.getProduct();
     });
   }

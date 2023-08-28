@@ -71,3 +71,11 @@
         display: block;
     }
 }
+
+::ng-deep .redPannel.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+    background-color: red !important;
+}
+
+::ng-deep .greenPannel.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+    background-color: green !important;
+}

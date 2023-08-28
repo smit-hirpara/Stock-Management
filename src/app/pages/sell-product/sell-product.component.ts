@@ -68,12 +68,12 @@ export class SellProductComponent {
       this.SellProductDetails[0].Quantity = this.SellProductDetails[0].Quantity - this.SellProduct.controls['Quantity'].value;
       this._CrudService.UpdateProduct(this.ProductId.id, this.SellProductDetails[0]).subscribe((res: any) => {
         this._CrudService.getProduct();
-        this._themeService.openSnackBar('Product Sell Success Fully');
+        this._themeService.openSnackBar('Product Sell Success Fully', 'greenPannel');
       });
     }
     else {
       let Message = 'Product Avalible Only ' + this.SellProductDetails[0].Quantity;
-      this._themeService.openSnackBar(Message);
+      this._themeService.openSnackBar(Message ,'redPannel');
     }
   }
 }

@@ -88,12 +88,12 @@ export class ThemeService {
   /*=========== Snack Bar ===========*/
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
-  openSnackBar(Value: any) {
-    this._snackBar.open(Value, 'Cancel', {
+  openSnackBar(Value: any, color:any) {
+    this._snackBar.open(Value, '', {
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
       duration: 3 * 1000,
-      panelClass: ['mycsssnackbartest']
+      panelClass: [color]
     });
   }
 }
