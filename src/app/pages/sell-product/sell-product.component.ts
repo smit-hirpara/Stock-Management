@@ -63,13 +63,18 @@ export class SellProductComponent {
   SellProductDetails: any;
   sellProduct() {
     this.GetProductId();
-    this.SellProductDetails = this.AllProducts.filter((data: any) => (data.id == this.ProductId.id));
-    this.SellProductDetails[0].Quantity = this.SellProductDetails[0].Quantity - this.SellProduct.controls['Quantity'].value;
-    console.error(this.SellProductDetails);
-    this._CrudService.UpdateProduct(this.ProductId.id, this.SellProductDetails[0]).subscribe((res: any) => {
-      this._CrudService.getProduct();
-      this._themeService.openSnackBar('Product Sell Success Fully');
-    })
+    this.SellProductDetails = this.AllProducts.filter((data: any) => (data.id == this.ProductId.id));    
+    if (this.SellProduct.controls['Quantity'].value <= this.SellProductDetails[0].Quantity) {
+      this.SellProductDetails[0].Quantity = this.SellProductDetails[0].Quantity - this.SellProduct.controls['Quantity'].value;
+      this._CrudService.UpdateProduct(this.ProductId.id, this.SellProductDetails[0]).subscribe((res: any) => {
+        this._CrudService.getProduct();
+        this._themeService.openSnackBar('Product Sell Success Fully');
+      });
+    }
+    else {
+      let Message = 'Product Avalible Only ' + this.SellProductDetails[0].Quantity;
+      this._themeService.openSnackBar(Message);
+    }
   }
 }
 

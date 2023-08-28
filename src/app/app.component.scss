@@ -58,6 +58,7 @@
 
 ::ng-deep .mat-drawer-content {
     overflow-x: hidden !important;
+    // height: max-content !important;
 }
 
 /*========== Toolbar ==========*/
@@ -270,4 +271,36 @@
 .bottom-tooltip-section:hover .bottom-tooltip {
     opacity: 1;
     transform: translate(-47%, 135%);
+}
+
+.Search-Bar {
+    width: 300px;
+    min-height: 50px;
+}
+
+::ng-deep .Search-Bar .mat-mdc-form-field-subscript-wrapper {
+    display: none;
+}
+
+::ng-deep .Search-Bar .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: transparent !important;
+}
+
+::ng-deep .Search-Bar .mat-mdc-form-field:hover,
+::ng-deep .Search-Bar .mat-mdc-form-field-focus-overlay {
+    opacity: 0 !important;
+}
+
+::ng-deep .Search-Bar.mat-mdc-form-field .mat-mdc-floating-label.mdc-floating-label,
+::ng-deep .Search-Bar .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
+    color: #fff !important;
+}
+
+::ng-deep .Search-Bar .mdc-text-field--filled:not(.mdc-text-field--disabled):hover .mdc-line-ripple::before,
+::ng-deep .Search-Bar .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before {
+        border-bottom-color: rgb(255 255 255 / 87%) !important;
+}
+
+::ng-deep .Search-Bar .mat-mdc-form-field-flex {
+    height: 50px;
 }

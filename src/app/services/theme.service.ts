@@ -93,7 +93,7 @@ export class ThemeService {
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
       duration: 3 * 1000,
-      panelClass: ['green-bar']
+      panelClass: ['mycsssnackbartest']
     });
   }
 }
