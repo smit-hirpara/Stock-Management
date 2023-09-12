@@ -26,7 +26,7 @@ export class CrudService {
   }
 
   /*----- Update Users -----*/
-  UpdateUser(id:any, value:any) {
+  UpdateUser(id: any, value: any) {
     return this.http.put(this.UsersDateBase + '/' + id, value);
   }
 
@@ -52,7 +52,12 @@ export class CrudService {
   }
 
   /*----- Get Product -----*/
-  UpdateProduct(id:any, value:any) {
+  UpdateProduct(id: any, value: any) {
     return this.http.put(this.ProductDataBase + '/' + id, value);
+  }
+
+  /*----- Delete Product -----*/
+  DeleteProduct(id: any) {
+    return this.http.delete(this.ProductDataBase + '/' + id);
   }
 }

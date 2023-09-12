@@ -25,13 +25,13 @@ export class SellProductComponent {
 
   ngOnInit(): void {
     this.SellProduct = this._fb.group({
-      firstName: ['',Validators.compose([Validators.required])],
-      lastName: ['',Validators.compose([Validators.required])],
-      Email: ['',Validators.compose([Validators.email,Validators.required])],
-      phoneNumber: ['',Validators.compose([Validators.required])],
-      productName: ['',Validators.compose([Validators.required])],
-      productSize: ['',Validators.compose([Validators.required])],
-      Quantity: ['',Validators.compose([Validators.required])],
+      firstName: ['', Validators.compose([Validators.required])],
+      lastName: ['', Validators.compose([Validators.required])],
+      Email: ['', Validators.compose([Validators.email, Validators.required])],
+      phoneNumber: ['', Validators.compose([Validators.required])],
+      productName: ['', Validators.compose([Validators.required])],
+      productSize: ['', Validators.compose([Validators.required])],
+      Quantity: ['', Validators.compose([Validators.required])],
     })
 
     this.GetProductId();
@@ -40,14 +40,14 @@ export class SellProductComponent {
 
   AllProducts: productDetails[] = new Array<productDetails>;
   GetProducts() {
-    this._CrudService.GetProduct().subscribe( {
-      next: (res:any) => {
+    this._CrudService.GetProduct().subscribe({
+      next: (res: any) => {
         this.AllProducts = res;
       },
       error: (error) => {
         console.error(error);
       },
-      complete : ()  => {
+      complete: () => {
         // console.warn('data get Success Fully');
       },
     })
@@ -63,17 +63,26 @@ export class SellProductComponent {
   SellProductDetails: any;
   sellProduct() {
     this.GetProductId();
-    this.SellProductDetails = this.AllProducts.filter((data: any) => (data.id == this.ProductId.id));    
+    this.SellProductDetails = this.AllProducts.filter((data: any) => (data.id == this.ProductId.id));
     if (this.SellProduct.controls['Quantity'].value <= this.SellProductDetails[0].Quantity) {
       this.SellProductDetails[0].Quantity = this.SellProductDetails[0].Quantity - this.SellProduct.controls['Quantity'].value;
       this._CrudService.UpdateProduct(this.ProductId.id, this.SellProductDetails[0]).subscribe((res: any) => {
         this._CrudService.getProduct();
         this._themeService.openSnackBar('Product Sell Success Fully', 'greenPannel');
       });
+
+      for (let products of this.AllProducts) {
+        if (products.Quantity == 0) {
+          this._CrudService.DeleteProduct(products.id).subscribe((res: any) => {
+            this._themeService.openSnackBar('All Products Sell', 'greenPannel');
+            this._CrudService.getProduct();
+          });
+        }
+      }
     }
     else {
       let Message = 'Product Avalible Only ' + this.SellProductDetails[0].Quantity;
-      this._themeService.openSnackBar(Message ,'redPannel');
+      this._themeService.openSnackBar(Message, 'redPannel');
     }
   }
 }

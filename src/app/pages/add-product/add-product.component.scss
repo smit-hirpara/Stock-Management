@@ -98,8 +98,9 @@
 
 /* ========== Uplode File images priview box ============ */
 .priview-image-section {
-    background-color: #a2cff8;
+    background-color: #deefff;
     width: 70%;
+    border: 2px solid #0072dd;
     border-radius: 5px;
     padding: 5px !important;
     height: auto;
@@ -122,11 +123,17 @@
 
 /* ========== images close btn icon ============ */
 .close-btn>i {
-    background-color: #ffffff;
-    border: 2px solid #116ebf;
+    // background-color: #ffffff;
+    // border: 2px solid #116ebf;
+    padding: 5px;
     border-radius: 50%;
     font-size: 20px;
     color: red;
+    transition: all 0.2s ease-in-out;
+}
+
+.close-btn>i:is(:hover,:active,:focus) {
+    background-color: rgba(204, 204, 204, 0.274);
 }
 
 /* ========== Uplode File Privew image ============ */
