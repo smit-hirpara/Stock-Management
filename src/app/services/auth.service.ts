@@ -10,6 +10,7 @@ export class AuthService {
   constructor(private route: Router) { }
   loginUserDetails: userDetails[] = new Array<userDetails>;
   userAuthorize!: any;
+  mainAdmin!: Boolean;
   authorizeValue = localStorage.getItem('UserAuthorize');
   authorize: any = this.authorizeValue ? JSON.parse(this.authorizeValue) : false;
 
@@ -26,6 +27,7 @@ export class AuthService {
   userAuthorie() {
     for (const user of this.GetLoginUserDetails) {
       this.userAuthorize = user.admin ? user.admin : false;
+      this.mainAdmin = user.mainAdmin ? user.mainAdmin : false;
     }
   }
 

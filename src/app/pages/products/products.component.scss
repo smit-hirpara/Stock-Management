@@ -127,6 +127,31 @@
     z-index: 1;
 }
 
+.deleteProduct-btn {
+    background-color: #ffe9e9;
+    color: #ff6e6e;
+    border: 1px solid #ff6e6e;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.deleteProduct-btn>i {
+    font-size: 23px;
+}
+.deleteProduct-btn:is(:hover,:focus,:active) {
+    background-color: #ff6e6e;
+    color: #fff;
+}
+
 .product-img-box {
     width: max-content;
     background-color: #D9D9D9;

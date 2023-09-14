@@ -4,6 +4,7 @@
         <ng-container *ngFor="let product of _crudService.ProductsDetails, let i = index">
             <div class="card-body">
                 <div class="quantity-badge">{{product.Quantity}}</div>
+                <div class="deleteProduct-btn" *ngIf="_authService.mainAdmin" (click)="DeleteProduct(product.id)"><i class="material-icons">delete_outline</i></div>
                 <div class="product-img-section">
                     <div class="product-img-box">
                         <img src="{{product.image}}" alt="Product" class="product-image"

@@ -23,13 +23,14 @@ import { ProductsComponent } from './pages/products/products.component';
 import { HistoryComponent } from './pages/history/history.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTableModule } from '@angular/material/table';
-import { AddProductComponent } from './pages/add-product/add-product.component';
+import { AddProductComponent } from './pages/diaplog-boxes/add-product/add-product.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { ReportComponent } from './pages/report/report.component';
-import { SellProductComponent } from './pages/sell-product/sell-product.component';
+import { SellProductComponent } from './pages/diaplog-boxes/sell-product/sell-product.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { DeleteProductComponent } from './pages/diaplog-boxes/delete-product/delete-product.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     HistoryComponent,
     AddProductComponent,
     ReportComponent,
-    SellProductComponent
+    SellProductComponent,
+    DeleteProductComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,15 @@
+<div mat-dialog-title>
+    <h4 class="m-0 dialog-header">Add New Product</h4>
+    <mat-icon class="dialog-close-btn" mat-dialog-close>clear</mat-icon>
+</div>
+
+<mat-dialog-content class="mat-typography">
+    <mat-form-field appearance="outline" class="fields">
+        <mat-label>Product Name</mat-label>
+        <input matInput placeholder="Enter Product Quantity" [(ngModel)]="DeleteQuantity">
+    </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end" class="dialog-footer">
+    <!-- <button mat-button mat-dialog-close>close</button> -->
+    <button mat-raised-button class="delete-btn" mat-dialog-close (click)="DeleteProduct()">Delete</button>
+</mat-dialog-actions>

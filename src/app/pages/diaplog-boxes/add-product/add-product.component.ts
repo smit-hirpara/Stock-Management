@@ -1,9 +1,9 @@
 import { Component, Injectable, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CrudService } from '../../services/crud.service';
-import { ProductsComponent } from '../products/products.component';
+import { CrudService } from '../../../services/crud.service';
+import { ProductsComponent } from '../../products/products.component';
 import { AuthService } from 'src/app/services/auth.service';
-import { productDetails, userDetails } from '../history/history.component';
+import { productDetails, userDetails } from '../../history/history.component';
 import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
@@ -12,14 +12,14 @@ import { ThemeService } from 'src/app/services/theme.service';
   styleUrls: ['./add-product.component.scss']
 })
 export class AddProductComponent {
-    /*========= Services =========*/
+  /*========= Services =========*/
   ProductDetails!: FormGroup;
-  _fb = inject(FormBuilder); 
+  _fb = inject(FormBuilder);
   _CrudService = inject(CrudService);
   _authService = inject(AuthService);
   _productCompo = inject(ProductsComponent);
   _themeService = inject(ThemeService);
-  
+
   ngOnInit(): void {
     this.ProductDetails = this._fb.group({
       Category: ['', Validators.compose([Validators.required])],

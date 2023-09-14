@@ -1,11 +1,12 @@
 import { Component, Injectable, inject } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { ThemeService } from '../../services/theme.service';
-import { AddProductComponent } from '../add-product/add-product.component';
+import { AddProductComponent } from '../diaplog-boxes/add-product/add-product.component';
 import { MatDialog } from '@angular/material/dialog';
 import { CrudService } from '../../services/crud.service';
-import { SellProductComponent } from '../sell-product/sell-product.component';
+import { SellProductComponent } from '../diaplog-boxes/sell-product/sell-product.component';
 import { Router } from '@angular/router';
+import { DeleteProductComponent } from '../diaplog-boxes/delete-product/delete-product.component';
 // import { productDetails } from '../history/history.component';
 
 @Component({
@@ -41,8 +42,13 @@ export class ProductsComponent {
     this._dialog.open(AddProductComponent);
   }
 
-  SellProduct(id:any) {
+  SellProduct(id: any) {
     this._dialog.open(SellProductComponent);
+    this._router.navigate(['/products'], { queryParams: { id: id } });
+  }
+
+  DeleteProduct(id: any) {
+    this._dialog.open(DeleteProductComponent);
     this._router.navigate(['/products'], { queryParams: { id: id } });
   }
 }
