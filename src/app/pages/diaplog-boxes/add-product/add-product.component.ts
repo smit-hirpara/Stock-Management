@@ -41,13 +41,16 @@ export class AddProductComponent {
     this.loginUserDetails = localStorage.getItem('loginUser');
     this._authService.GetloginUserfromDatabase();
     this.loginUserDetails = this._authService.GetLoginUserDetails[0];
-    console.warn(this.loginUserDetails);
     this.ProductInformation = { ...this.ProductDetails.value, date: this.currentDate, image: this.images, user: this.loginUserDetails.FirstName };
-    console.warn(this.ProductInformation);
     this._CrudService.AddProduct(this.ProductInformation).subscribe((res: any) => {
       this._themeService.openSnackBar('Product Added Success Fully', 'greenPannel');
       this._CrudService.getProduct();
     });
+
+    this.ProductInformation = { ...this.ProductDetails.value, date: this.currentDate, user: this.loginUserDetails.FirstName };
+    this._CrudService.AddProductHistory(this.ProductInformation).subscribe((res: any) => {
+      this._CrudService.GetProductHistory();
+    })
   }
 
   /* ================== push uploaded file in images array ==================== */

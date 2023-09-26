@@ -28,7 +28,6 @@
                 <ng-container *ngIf="userHistory.length != 0">
                     <button mat-icon-button (click)="export()" class="print-button"><mat-icon>print</mat-icon></button>
                     <table mat-table [dataSource]="userHistory" class="data-table">
-
                         <ng-container matColumnDef="date">
                             <th mat-header-cell cdkDrag *matHeaderCellDef> date </th>
                             <div>

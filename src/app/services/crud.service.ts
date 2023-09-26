@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { productDetails } from '../pages/history/history.component';
+import { productAddHistory, productDetails } from '../pages/history/history.component';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +32,7 @@ export class CrudService {
 
 
 
-  /*======================= Products Base =======================*/
+  /*======================= Products Data Base =======================*/
   ProductDataBase = 'http://localhost:3000/Products';
   /*----- Add Product -----*/
   AddProduct(data: any) {
@@ -59,5 +59,26 @@ export class CrudService {
   /*----- Delete Product -----*/
   DeleteProduct(id: any) {
     return this.http.delete(this.ProductDataBase + '/' + id);
+  }
+
+
+  /*======================= Products Data Base =======================*/
+  ProductHistoryDataBase = 'http://localhost:3000/ProductsAddHistory';
+  /*----- Add Product Hisroty -----*/
+  AddProductHistory(data: any) {
+    return this.http.post(this.ProductHistoryDataBase, data);
+  }
+
+  /*----- Get Product Hisroty -----*/
+  getProductHistory() {
+    return this.http.get(this.ProductHistoryDataBase);
+  }
+
+  ProductAddHistory: productAddHistory[] = new Array<productAddHistory>();
+  GetProductHistory() {
+    this.getProductHistory().subscribe((res: any) => {
+      this.ProductAddHistory = res;
+      console.warn(this.ProductAddHistory);
+    })
   }
 }

@@ -17,7 +17,8 @@ export class HistoryComponent {
 
   ngOnInit(): void {
     this.getUsers();
-    this.GetProduct();
+    this._crudService.GetProductHistory();
+    // this.GetProduct();
 
     /*----------- Check User Authorize Or Not -----------*/
     if (!this._authService.authorize) {
@@ -29,7 +30,7 @@ export class HistoryComponent {
   AllUsers: userDetails[] = new Array<userDetails>;
   productDetails: productDetails[] = new Array<productDetails>;
   filterUser: userDetails[] = new Array<userDetails>;
-  userHistory: productDetails[] = new Array<productDetails>;
+  userHistory: productAddHistory[] = new Array<productAddHistory>;
   ReportData: any;
   columns: string[] = ['date', 'Category', 'product', 'quantity', 'size', 'price'];
 
@@ -41,21 +42,21 @@ export class HistoryComponent {
   }
 
   /*===== Get All Products =====*/
-  GetProduct() {
-    this._crudService.GetProduct().subscribe((res: any) => {
-      this.productDetails = res;
-    });
-  }
+  // GetProduct() {
+  //   this._crudService.GetProduct().subscribe((res: any) => {
+  //     this.productDetails = res;
+  //   });
+  // }
 
   /*===== Get User History Dynamically =====*/
   GetHistory(index: any) {
-    this.GetProduct();
+    // this.GetProduct();
     /*----- Filter User -----*/
     this.filterUser = this.AllUsers.filter((data: any) => (data.id == index));
 
     /*----- Filter User History -----*/
-    this.userHistory = this.productDetails.filter((data: any) => (data.user == this.filterUser[0].FirstName));
-    
+    this.userHistory = this._crudService.ProductAddHistory.filter((data: any) => (data.user == this.filterUser[0].FirstName));
+
     this.ReportData = this.userHistory;
     for (let a = 0; a < this.ReportData.length; a++) {
       delete this.ReportData[a].id;
@@ -68,20 +69,20 @@ export class HistoryComponent {
     this._crudService.UpdateUser(id, value).subscribe((res: any) => {
       this.getUsers();
     })
-  } 
+  }
   export() {
-    const options = { 
+    const options = {
       fieldSeparator: ',',
       quoteStrings: '"',
       decimalSeparator: '.',
-      showLabels: true, 
+      showLabels: true,
       showTitle: true,
-      title: this.filterUser[0].FirstName+' History Report',
+      title: this.filterUser[0].FirstName + ' History Report',
       useTextFile: false,
       useBom: true,
       headers: ['Category', 'ProductName', 'Size', 'Price', 'Quantity', 'Date', 'User']
-  };
-   const csvExporter = new ExportToCsv(options);
+    };
+    const csvExporter = new ExportToCsv(options);
     csvExporter.generateCsv(this.ReportData);
   }
 }
@@ -95,6 +96,16 @@ export class productDetails {
   date: any;
   id!: number;
   image: any;
+  user!: string
+}
+export class productAddHistory {
+  Category!: string;
+  Price!: string;
+  ProductName!: string;
+  Quantity!: number;
+  Size!: string;
+  date: any;
+  id!: number;
   user!: string
 }
 

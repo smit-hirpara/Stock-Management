@@ -22,7 +22,7 @@
 .dialog-close-btn {
     height: max-content;
     color: gray;
-    font-size: 25px;
+    font-size: 21px;
     transition: all 0.3s ease-in-out;
     height: 30px;
     width: 30px;
@@ -30,6 +30,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+    font-weight: 600;
 }
 
 .dialog-close-btn:hover {
