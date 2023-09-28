@@ -47,7 +47,7 @@ export class AddProductComponent {
       this._CrudService.getProduct();
     });
 
-    this.ProductInformation = { ...this.ProductDetails.value, date: this.currentDate, user: this.loginUserDetails.FirstName };
+    this.ProductInformation = { ...this.ProductDetails.value, date: this.currentDate, user: this.loginUserDetails.FirstName, status: 1 };
     this._CrudService.AddProductHistory(this.ProductInformation).subscribe((res: any) => {
       this._CrudService.GetProductHistory();
     })

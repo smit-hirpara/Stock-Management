@@ -185,3 +185,18 @@
     top: 5px;
     right: 10px;
 }
+
+.product-avalible-status {
+    --status-color: green;
+}
+
+.product-unavalible-status {
+    --status-color: red;
+}
+
+.product-status {
+    background-color: var(--status-color);
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+}

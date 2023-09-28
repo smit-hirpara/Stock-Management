@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { CrudService } from 'src/app/services/crud.service';
 import { ThemeService } from 'src/app/services/theme.service';
-import { productDetails } from '../../history/history.component';
+import { productAddHistory, productDetails } from '../../history/history.component';
 
 @Component({
   selector: 'app-sell-product',
@@ -61,6 +61,7 @@ export class SellProductComponent {
 
 
   SellProductDetails: any;
+  AddProductHistory: productAddHistory[] = new Array<productAddHistory>;
   sellProduct() {
     this.GetProductId();
     this.SellProductDetails = this.AllProducts.filter((data: any) => (data.id == this.ProductId.id));
@@ -77,6 +78,16 @@ export class SellProductComponent {
             this._themeService.openSnackBar('All Products Sell', 'greenPannel');
             this._CrudService.getProduct();
           });
+
+          this._CrudService.GetProductHistory();
+          setTimeout(() => {
+            this.AddProductHistory = this._CrudService.ProductAddHistory.filter((data: any) => (data.ProductName == this.SellProductDetails[0].ProductName && data.Category == this.SellProductDetails[0].Category));
+            console.error('sellproduct Details  = ', this.SellProductDetails[0]);
+            console.error('History Details  = ', this.AddProductHistory[0]);
+            this.AddProductHistory[0].status = 2;
+            this._CrudService.UpdateProductHistory(this.AddProductHistory[0].id, this.AddProductHistory[0]).subscribe((res: any) => { });
+            this._CrudService.GetProductHistory();
+          }, 1000);
         }
       }
     }

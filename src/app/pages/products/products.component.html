@@ -35,7 +35,7 @@
                 <div class="product-details-section">
                     <p class="product-name">{{product.ProductName}}</p>
                     <div class="info-badges-group">
-                        <span class="green-badge">{{product.Price}} ₹</span>
+                        <span class="green-badge">{{product.Price | currency:'INR':'symbol':'3.0'}}</span>
                         <span class="primary-outline-badge">{{product.Size}}</span>
                     </div>
                     <button mat-button class="sell-btn" style="align-self: end;" (click)="SellProduct(product.id)">Purchase

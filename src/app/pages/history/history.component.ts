@@ -32,7 +32,7 @@ export class HistoryComponent {
   filterUser: userDetails[] = new Array<userDetails>;
   userHistory: productAddHistory[] = new Array<productAddHistory>;
   ReportData: any;
-  columns: string[] = ['date', 'Category', 'product', 'quantity', 'size', 'price'];
+  columns: string[] = ['status', 'date', 'Category', 'product', 'quantity', 'size', 'price'];
 
   /*===== Get All Users =====*/
   getUsers() {
@@ -106,7 +106,8 @@ export class productAddHistory {
   Size!: string;
   date: any;
   id!: number;
-  user!: string
+  user!: string;
+  status!: number;
 }
 
 export class userDetails {
