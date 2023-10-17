@@ -60,17 +60,28 @@ export class SellProductComponent {
   }
 
 
-  SellProductDetails: any;
+  SellProductDetails: productDetails[] = new Array<productDetails>;
   AddProductHistory: productAddHistory[] = new Array<productAddHistory>;
+  SellProductHistory: any;
   sellProduct() {
     this.GetProductId();
     this.SellProductDetails = this.AllProducts.filter((data: any) => (data.id == this.ProductId.id));
-    if (this.SellProduct.controls['Quantity'].value <= this.SellProductDetails[0].Quantity) {
+    this.SellProductHistory = JSON.parse(JSON.stringify(this.SellProductDetails[0]));
+    if (this.SellProductDetails[0].Quantity >= this.SellProduct.controls['Quantity'].value) {
+
       this.SellProductDetails[0].Quantity = this.SellProductDetails[0].Quantity - this.SellProduct.controls['Quantity'].value;
+      console.log('SellProductDetails =' + this.SellProductDetails[0].Quantity);
+      this.SellProductHistory.Quantity = this.SellProduct.controls['Quantity'].value;
+      this.SellProductHistory.date = new Date();
+      delete this.SellProductHistory.image;
+      this.SellProductHistory = { ...this.SellProductHistory, CustomarName: this.SellProduct.controls['firstName'].value + ' ' + this.SellProduct.controls['lastName'].value, Email: this.SellProduct.controls['Email'].value, phoneNumber: this.SellProduct.controls['phoneNumber'].value };
+
+      this._CrudService.AddProductSellHistory(this.SellProductHistory).subscribe((res: any) => { });
       this._CrudService.UpdateProduct(this.ProductId.id, this.SellProductDetails[0]).subscribe((res: any) => {
         this._CrudService.getProduct();
         this._themeService.openSnackBar('Product Sell Success Fully', 'greenPannel');
       });
+
 
       for (let products of this.AllProducts) {
         if (products.Quantity == 0) {
@@ -85,8 +96,9 @@ export class SellProductComponent {
             console.error('sellproduct Details  = ', this.SellProductDetails[0]);
             console.error('History Details  = ', this.AddProductHistory[0]);
             this.AddProductHistory[0].status = 2;
-            this._CrudService.UpdateProductHistory(this.AddProductHistory[0].id, this.AddProductHistory[0]).subscribe((res: any) => { });
-            this._CrudService.GetProductHistory();
+            this._CrudService.UpdateProductHistory(this.AddProductHistory[0].id, this.AddProductHistory[0]).subscribe((res: any) => {
+              this._CrudService.GetProductHistory();
+            });
           }, 1000);
         }
       }

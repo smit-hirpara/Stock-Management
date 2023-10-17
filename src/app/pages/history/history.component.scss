@@ -1,11 +1,13 @@
 .light-container {
     --card-bg-collor: #ffff;
     --text-color: rgb(173, 173, 173);
+    padding: 10px;
 }
 
 .dark-container {
     --card-bg-collor: rgb(185, 185, 185);
     --text-color: rgb(0, 0, 0);
+    padding: 10px;
 }
 
 .user-img {
@@ -62,6 +64,10 @@
 
 .data-table {
     background-color: var(--card-bg-collor) !important;
+}
+
+::ng-deep .data-table.mat-mdc-table tbody {
+    border-radius: 0 0 7px 7px !important;
 }
 
 ::ng-deep .mat-expansion-panel-body {
@@ -182,7 +188,7 @@
 
 .print-button {
     position: absolute;
-    top: 5px;
+    top: 0;
     right: 10px;
 }
 
@@ -199,4 +205,37 @@
     width: 13px;
     height: 13px;
     border-radius: 50%;
+    margin-right: 10px;
+}
+
+.add-history-cards,
+.sell-history-cards {
+    border: 1px solid #1d86e9;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.add-history-cards>.card-header,
+.sell-history-cards>.card-header {
+    background-color: rgb(29 134 233 / 59%);
+    border-radius: 5px 5px 0 0;
+    padding: 13px;
+    color: #FFF;
+    position: relative;
+}
+
+.sell-history-cards {
+    border-color: red;
+}
+
+.sell-history-cards>.card-header {
+    background-color: rgb(255 58 58 / 45%);
+}
+
+.add-history-cards>.card-body,
+.sell-history-cards>.card-body {
+    min-height: 0px;
+    max-height: 300px;
+    overflow: auto;
+    border-radius: 10px;
 }

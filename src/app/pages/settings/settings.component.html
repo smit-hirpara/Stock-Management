@@ -1,0 +1,29 @@
+<section class="setting-card">
+    <div class="card-header">
+        <p>Product Category</p>
+    </div>
+    <div class="card-body">
+        <table class="table table-border">
+            <tr>
+                <th>Status</th>
+                <th>Category</th>
+                <th>Action</th>
+            </tr>
+            <ng-container>
+                <!-- <mat-form-field appearance="outline" class="fields">
+                    <mat-label>Product Price</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="Price">
+                </mat-form-field> -->
+            </ng-container>
+
+            <ng-container *ngFor="let category of Categoryes">
+                <tr>
+                    <td>{{category.Status}}</td>
+                    <td>{{category.Category}}</td>
+                    <td>{{category.Status}}</td>
+                </tr>
+            </ng-container>
+
+        </table>
+    </div>
+</section>

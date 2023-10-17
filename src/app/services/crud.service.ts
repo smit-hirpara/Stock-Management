@@ -62,7 +62,7 @@ export class CrudService {
   }
 
 
-  /*======================= Products History Data Base =======================*/
+  /*======================= Products Add History Data Base =======================*/
   ProductHistoryDataBase = 'http://localhost:3000/ProductsAddHistory';
   /*----- Add Product Hisroty -----*/
   AddProductHistory(data: any) {
@@ -85,4 +85,17 @@ export class CrudService {
   UpdateProductHistory(id: any, value: any) {
     return this.http.put(this.ProductHistoryDataBase + '/' + id, value)
   }
+
+  /*======================= Products Sell History Data Base =======================*/
+  ProductSellHistoryDataBase = 'http://localhost:3000/ProductsSellHistory';
+  /*----- Add Product Sell Hisroty -----*/
+  AddProductSellHistory(data: any) {
+    return this.http.post(this.ProductSellHistoryDataBase, data);
+  }
+
+  /*----- Get Product Sell Hisroty -----*/
+  getProductSellHistory() {
+    return this.http.get(this.ProductSellHistoryDataBase);
+  }
+
 }

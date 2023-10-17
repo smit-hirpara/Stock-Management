@@ -42,6 +42,7 @@ export class AddProductComponent {
     this._authService.GetloginUserfromDatabase();
     this.loginUserDetails = this._authService.GetLoginUserDetails[0];
     this.ProductInformation = { ...this.ProductDetails.value, date: this.currentDate, image: this.images, user: this.loginUserDetails.FirstName };
+    console.error(this.ProductInformation);
     this._CrudService.AddProduct(this.ProductInformation).subscribe((res: any) => {
       this._themeService.openSnackBar('Product Added Success Fully', 'greenPannel');
       this._CrudService.getProduct();

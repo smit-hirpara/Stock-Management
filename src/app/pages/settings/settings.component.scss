@@ -1,0 +1,37 @@
+.setting-card {
+    background-color: #FFF;
+    border-radius: 10px;
+    border: 1px solid rgb(226, 226, 226);
+    margin: 10px;
+}
+
+.card-header {
+    border-bottom: 1px solid rgb(226, 226, 226);
+    padding: 15px 15px 15px 0;
+}
+
+.card-header>p {
+    border-left: 5px solid #1d86e9;
+    padding-left: 30px;
+    margin-bottom: 0;
+    font-size: 18px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.fields {
+    width: auto;
+}
+
+/*---------- Dialog Box Content Box ----------*/
+::ng-deep .fields .mat-mdc-form-field-subscript-wrapper {
+    display: none;
+}
+
+::ng-deep .fields .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__leading,
+::ng-deep .fields .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__notch,
+::ng-deep .fields .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__trailing {
+    border-color: #1d86e9 !important;
+}

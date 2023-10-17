@@ -32,6 +32,7 @@ export class HistoryComponent {
   filterUser: userDetails[] = new Array<userDetails>;
   userHistory: productAddHistory[] = new Array<productAddHistory>;
   ReportData: any;
+  sellProductColumns: string[] = ['date', 'Category', 'product', 'quantity', 'size', 'price'];
   columns: string[] = ['status', 'date', 'Category', 'product', 'quantity', 'size', 'price'];
 
   /*===== Get All Users =====*/
@@ -56,7 +57,7 @@ export class HistoryComponent {
 
     /*----- Filter User History -----*/
     this.userHistory = this._crudService.ProductAddHistory.filter((data: any) => (data.user == this.filterUser[0].FirstName));
-
+    this.GetSellProductHistory(this.filterUser);
     this.ReportData = this.userHistory;
     for (let a = 0; a < this.ReportData.length; a++) {
       delete this.ReportData[a].id;
@@ -69,6 +70,15 @@ export class HistoryComponent {
     this._crudService.UpdateUser(id, value).subscribe((res: any) => {
       this.getUsers();
     })
+  }
+
+
+  sellproductHistory: any;
+  GetSellProductHistory(user: any) {
+    this._crudService.getProductSellHistory().subscribe((res: any) => {
+      this.sellproductHistory = res;
+    });
+    this.sellproductHistory = this.sellproductHistory.filter((data: any) => (data.user == user[0].FirstName));
   }
   export() {
     const options = {
@@ -100,7 +110,7 @@ export class productDetails {
 }
 export class productAddHistory {
   Category!: string;
-  Price!: string;
+  Price!: number;
   ProductName!: string;
   Quantity!: number;
   Size!: string;
@@ -108,6 +118,20 @@ export class productAddHistory {
   id!: number;
   user!: string;
   status!: number;
+}
+
+export class productSellHistory {
+  Category!: string;
+  ProductName!: string;
+  Size!: string;
+  Price!: string;
+  Quantity!: number;
+  date!: any;
+  user!: string;
+  id!: number;
+  CustomarName!: string;
+  Email!: string
+  phoneNumber!: number;
 }
 
 export class userDetails {

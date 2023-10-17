@@ -31,6 +31,7 @@ import { SellProductComponent } from './pages/diaplog-boxes/sell-product/sell-pr
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DeleteProductComponent } from './pages/diaplog-boxes/delete-product/delete-product.component';
+import { SettingsComponent } from './pages/settings/settings.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { DeleteProductComponent } from './pages/diaplog-boxes/delete-product/del
     AddProductComponent,
     ReportComponent,
     SellProductComponent,
-    DeleteProductComponent
+    DeleteProductComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

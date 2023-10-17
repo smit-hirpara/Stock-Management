@@ -23,7 +23,7 @@ export class AppComponent {
     { logo: 'home', link: 'products', text: 'Products' },
     { logo: 'history', link: 'history', text: 'History' },
     { logo: 'trending_up', link: 'report', text: 'Report' },
-    // { logo: 'dashboard', link: 'gallery2', text: 'Gallery' },
+    { logo: 'settings', link: 'setting', text: 'Setting' },
     // { logo: 'playlist_add_check', link: 'contact', text: 'Risk Control' },
     // { logo: 'whatshot', link: '', text: 'Fire' },
     // { logo: 'format_color_fill', link: '', text: 'Hygiene' },
